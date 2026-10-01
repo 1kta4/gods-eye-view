@@ -1,0 +1,676 @@
+[
+ {
+  "id": "ba-gp-velika-kladusa",
+  "key": "velika-kladusa",
+  "name": "Velika Kladuša",
+  "lat": 45.19547,
+  "lon": 15.79263,
+  "country": "HR",
+  "neighbourCrossing": "Maljevac",
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 307,
+  "cameras": [],
+  "elevationM": 141
+ },
+ {
+  "id": "ba-gp-novi-grad",
+  "key": "novi-grad",
+  "name": "Novi Grad",
+  "lat": 45.04922,
+  "lon": 16.37395,
+  "country": "HR",
+  "neighbourCrossing": "Dvor",
+  "coordSource": "osm",
+  "outwardBearingDeg": 312,
+  "cameras": [
+   "ba-amsrs-ng02-10",
+   "ba-amsrs-ng01-10"
+  ],
+  "elevationM": 118
+ },
+ {
+  "id": "ba-gp-kostajnica",
+  "key": "kostajnica",
+  "name": "Kostajnica",
+  "lat": 45.22069,
+  "lon": 16.54811,
+  "country": "HR",
+  "neighbourCrossing": "Hrvatska Kostajnica",
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 321,
+  "cameras": [
+   "ba-amsrs-ko02-11",
+   "ba-amsrs-ko01-11"
+  ],
+  "elevationM": 108
+ },
+ {
+  "id": "ba-gp-kozarska-dubica",
+  "key": "kozarska-dubica",
+  "name": "Kozarska Dubica",
+  "lat": 45.18424,
+  "lon": 16.80884,
+  "country": "HR",
+  "neighbourCrossing": "Hrvatska Dubica",
+  "coordSource": "osm",
+  "outwardBearingDeg": 326,
+  "cameras": [
+   "ba-amsrs-kd02-09",
+   "ba-amsrs-kd01-09"
+  ],
+  "elevationM": 93
+ },
+ {
+  "id": "ba-gp-gradina",
+  "key": "gradina",
+  "name": "Gradina",
+  "lat": 45.26545,
+  "lon": 16.91877,
+  "country": "HR",
+  "neighbourCrossing": "Jasenovac",
+  "coordSource": "osm",
+  "outwardBearingDeg": 331,
+  "cameras": [
+   "ba-amsrs-gd02-08",
+   "ba-amsrs-gd01-08"
+  ],
+  "elevationM": 93
+ },
+ {
+  "id": "ba-gp-brod",
+  "key": "brod",
+  "name": "Brod",
+  "lat": 45.14622,
+  "lon": 18.00591,
+  "country": "HR",
+  "neighbourCrossing": "Slavonski Brod",
+  "coordSource": "osm",
+  "outwardBearingDeg": 9,
+  "cameras": [
+   "ba-bihamk-brod2",
+   "ba-bihamk-brod1",
+   "ba-amsrs-br02-04",
+   "ba-amsrs-br01-04"
+  ],
+  "elevationM": 90
+ },
+ {
+  "id": "ba-gp-samac",
+  "key": "samac",
+  "name": "Šamac",
+  "lat": 45.05772,
+  "lon": 18.49116,
+  "country": "HR",
+  "neighbourCrossing": "Slavonski Šamac",
+  "coordSource": "osm",
+  "outwardBearingDeg": 29,
+  "cameras": [
+   "ba-amsrs-sa01-15",
+   "ba-amsrs-sa02-15"
+  ],
+  "elevationM": 87
+ },
+ {
+  "id": "ba-gp-orasje",
+  "key": "orasje",
+  "name": "Orašje",
+  "lat": 45.03128,
+  "lon": 18.70221,
+  "country": "HR",
+  "neighbourCrossing": "Županja",
+  "coordSource": "osm",
+  "outwardBearingDeg": 37,
+  "cameras": [
+   "ba-bihamk-orasje"
+  ],
+  "elevationM": 87
+ },
+ {
+  "id": "ba-gp-brcko",
+  "key": "brcko",
+  "name": "Brčko",
+  "lat": 44.87887,
+  "lon": 18.81014,
+  "country": "HR",
+  "neighbourCrossing": "Gunja",
+  "coordSource": "osm",
+  "outwardBearingDeg": 46,
+  "cameras": [],
+  "elevationM": 91
+ },
+ {
+  "id": "ba-gp-raca",
+  "key": "raca",
+  "name": "Rača",
+  "lat": 44.90432,
+  "lon": 19.30232,
+  "country": "RS",
+  "neighbourCrossing": "Sremska Rača",
+  "coordSource": "osm",
+  "outwardBearingDeg": 55,
+  "cameras": [
+   "ba-amsrs-ra02-02",
+   "ba-amsrs-ra01-02"
+  ],
+  "elevationM": 83
+ },
+ {
+  "id": "ba-gp-popovi",
+  "key": "popovi",
+  "name": "Popovi",
+  "lat": 44.77517,
+  "lon": 19.33683,
+  "country": "RS",
+  "neighbourCrossing": "Badovinci (Pavlovića most)",
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 61,
+  "cameras": [
+   "ba-amsrs-pm02-05",
+   "ba-amsrs-pm01-05"
+  ],
+  "elevationM": 89
+ },
+ {
+  "id": "ba-gp-sepak",
+  "key": "sepak",
+  "name": "Šepak",
+  "lat": 44.54285,
+  "lon": 19.18081,
+  "country": "RS",
+  "neighbourCrossing": "Trbušnica",
+  "coordSource": "osm",
+  "outwardBearingDeg": 69,
+  "cameras": [
+   "ba-amsrs-sp02-06",
+   "ba-amsrs-sp01-06"
+  ],
+  "elevationM": 127
+ },
+ {
+  "id": "ba-gp-karakaj",
+  "key": "karakaj",
+  "name": "Karakaj",
+  "lat": 44.40639,
+  "lon": 19.12465,
+  "country": "RS",
+  "neighbourCrossing": "Mali Zvornik",
+  "coordSource": "osm",
+  "outwardBearingDeg": 76,
+  "cameras": [
+   "ba-amsrs-ka02-07",
+   "ba-amsrs-ka01-07"
+  ],
+  "elevationM": 141
+ },
+ {
+  "id": "ba-gp-bratunac",
+  "key": "bratunac",
+  "name": "Bratunac",
+  "lat": 44.20482,
+  "lon": 19.35714,
+  "country": "RS",
+  "neighbourCrossing": "Ljubovija",
+  "coordSource": "osm",
+  "outwardBearingDeg": 88,
+  "cameras": [],
+  "elevationM": 202
+ },
+ {
+  "id": "ba-gp-skelani",
+  "key": "skelani",
+  "name": "Skelani",
+  "lat": 43.97569,
+  "lon": 19.54128,
+  "country": "RS",
+  "neighbourCrossing": "Bajina Bašta",
+  "coordSource": "osm",
+  "outwardBearingDeg": 98,
+  "cameras": [],
+  "elevationM": 248
+ },
+ {
+  "id": "ba-gp-vardiste",
+  "key": "vardiste",
+  "name": "Vardište",
+  "lat": 43.7602,
+  "lon": 19.45915,
+  "country": "RS",
+  "neighbourCrossing": "Kotroman",
+  "coordSource": "osm",
+  "outwardBearingDeg": 108,
+  "cameras": [
+   "ba-amsrs-va01-16",
+   "ba-amsrs-va02-16"
+  ],
+  "elevationM": 461
+ },
+ {
+  "id": "ba-gp-uvac",
+  "key": "uvac",
+  "name": "Uvac",
+  "lat": 43.60093,
+  "lon": 19.49011,
+  "country": "RS",
+  "neighbourCrossing": null,
+  "coordSource": "osm",
+  "outwardBearingDeg": 114,
+  "cameras": [],
+  "elevationM": 387
+ },
+ {
+  "id": "ba-gp-metaljka",
+  "key": "metaljka",
+  "name": "Metaljka",
+  "lat": 43.52845,
+  "lon": 19.13942,
+  "country": "ME",
+  "neighbourCrossing": "Metaljka",
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 123,
+  "cameras": [],
+  "elevationM": 1230
+ },
+ {
+  "id": "ba-gp-vitine",
+  "key": "vitine",
+  "name": "Vitine",
+  "lat": 43.39212,
+  "lon": 19.03205,
+  "country": "ME",
+  "neighbourCrossing": null,
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 130,
+  "cameras": [],
+  "elevationM": 1212
+ },
+ {
+  "id": "ba-gp-hum",
+  "key": "hum",
+  "name": "Hum",
+  "lat": 43.34907,
+  "lon": 18.84462,
+  "country": "ME",
+  "neighbourCrossing": "Šćepan Polje",
+  "coordSource": "osm",
+  "outwardBearingDeg": 137,
+  "cameras": [
+   "ba-amsrs-sp01-13"
+  ],
+  "elevationM": 452
+ },
+ {
+  "id": "ba-gp-deleusa",
+  "key": "deleusa",
+  "name": "Deleuša",
+  "lat": 42.86141,
+  "lon": 18.4796,
+  "country": "ME",
+  "neighbourCrossing": "Vraćenovići",
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 159,
+  "cameras": [],
+  "elevationM": 647
+ },
+ {
+  "id": "ba-gp-klobuk",
+  "key": "klobuk",
+  "name": "Klobuk",
+  "lat": 42.71263,
+  "lon": 18.54957,
+  "country": "ME",
+  "neighbourCrossing": "Ilino Brdo",
+  "coordSource": "osm",
+  "outwardBearingDeg": 159,
+  "cameras": [
+   "ba-amsrs-kl01-12"
+  ],
+  "elevationM": 899
+ },
+ {
+  "id": "ba-gp-zupci",
+  "key": "zupci",
+  "name": "Zupci",
+  "lat": 42.55799,
+  "lon": 18.44613,
+  "country": "ME",
+  "neighbourCrossing": "Sitnica",
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 163,
+  "cameras": [
+   "ba-amsrs-tb02-03"
+  ],
+  "elevationM": 869
+ },
+ {
+  "id": "ba-gp-ivanica",
+  "key": "ivanica",
+  "name": "Ivanica",
+  "lat": 42.65919,
+  "lon": 18.16301,
+  "country": "HR",
+  "neighbourCrossing": "Gornji Brgat",
+  "coordSource": "osm",
+  "outwardBearingDeg": 169,
+  "cameras": [],
+  "elevationM": 343
+ },
+ {
+  "id": "ba-gp-trebimlja",
+  "key": "trebimlja",
+  "name": "Trebimlja",
+  "lat": 42.87132,
+  "lon": 17.85402,
+  "country": "HR",
+  "neighbourCrossing": null,
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 178,
+  "cameras": [],
+  "elevationM": 334
+ },
+ {
+  "id": "ba-gp-neum-ii",
+  "key": "neum-ii",
+  "name": "Neum II",
+  "lat": 42.8904,
+  "lon": 17.64963,
+  "country": "HR",
+  "neighbourCrossing": "Zaton Doli",
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 184,
+  "cameras": [],
+  "elevationM": 85
+ },
+ {
+  "id": "ba-gp-neum-i",
+  "key": "neum-i",
+  "name": "Neum I",
+  "lat": 42.93876,
+  "lon": 17.58125,
+  "country": "HR",
+  "neighbourCrossing": "Klek",
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 187,
+  "cameras": [],
+  "elevationM": 17
+ },
+ {
+  "id": "ba-gp-doljani",
+  "key": "doljani",
+  "name": "Doljani",
+  "lat": 43.05274,
+  "lon": 17.67546,
+  "country": "HR",
+  "neighbourCrossing": "Metković",
+  "coordSource": "osm",
+  "outwardBearingDeg": 184,
+  "cameras": [
+   "ba-bihamk-doljani"
+  ],
+  "elevationM": 3
+ },
+ {
+  "id": "ba-gp-gabela-polje",
+  "key": "gabela-polje",
+  "name": "Gabela Polje",
+  "lat": 43.05911,
+  "lon": 17.65733,
+  "country": "HR",
+  "neighbourCrossing": null,
+  "coordSource": "osm",
+  "outwardBearingDeg": 185,
+  "cameras": [],
+  "elevationM": 4
+ },
+ {
+  "id": "ba-gp-zvirici",
+  "key": "zvirici",
+  "name": "Zvirići",
+  "lat": 43.10523,
+  "lon": 17.6065,
+  "country": "HR",
+  "neighbourCrossing": null,
+  "coordSource": "osm",
+  "outwardBearingDeg": 187,
+  "cameras": [],
+  "elevationM": 76
+ },
+ {
+  "id": "ba-gp-bijaca",
+  "key": "bijaca",
+  "name": "Bijača",
+  "lat": 43.12338,
+  "lon": 17.57488,
+  "country": "HR",
+  "neighbourCrossing": "Nova Sela",
+  "coordSource": "osm",
+  "outwardBearingDeg": 188,
+  "cameras": [
+   "ba-bihamk-bijaca"
+  ],
+  "elevationM": 98
+ },
+ {
+  "id": "ba-gp-crveni-grm",
+  "key": "crveni-grm",
+  "name": "Crveni Grm",
+  "lat": 43.16154,
+  "lon": 17.47845,
+  "country": "HR",
+  "neighbourCrossing": null,
+  "coordSource": "osm",
+  "outwardBearingDeg": 192,
+  "cameras": [
+   "ba-bihamk-crvenigrm"
+  ],
+  "elevationM": 117
+ },
+ {
+  "id": "ba-gp-orahovlje",
+  "key": "orahovlje",
+  "name": "Orahovlje",
+  "lat": 43.21789,
+  "lon": 17.42868,
+  "country": "HR",
+  "neighbourCrossing": "Orah",
+  "coordSource": "osm",
+  "outwardBearingDeg": 195,
+  "cameras": [],
+  "elevationM": 67
+ },
+ {
+  "id": "ba-gp-gorica",
+  "key": "gorica",
+  "name": "Gorica",
+  "lat": 43.4221,
+  "lon": 17.27561,
+  "country": "HR",
+  "neighbourCrossing": "Vinjani Donji",
+  "coordSource": "osm",
+  "outwardBearingDeg": 206,
+  "cameras": [],
+  "elevationM": 266
+ },
+ {
+  "id": "ba-gp-prisika",
+  "key": "prisika",
+  "name": "Prisika",
+  "lat": 43.60646,
+  "lon": 16.99149,
+  "country": "HR",
+  "neighbourCrossing": "Aržano",
+  "coordSource": "osm",
+  "outwardBearingDeg": 226,
+  "cameras": [
+   "ba-bihamk-prisika"
+  ],
+  "elevationM": 734
+ },
+ {
+  "id": "ba-gp-kamensko",
+  "key": "kamensko",
+  "name": "Kamensko",
+  "lat": 43.61122,
+  "lon": 16.97605,
+  "country": "HR",
+  "neighbourCrossing": "Kamensko",
+  "coordSource": "osm",
+  "outwardBearingDeg": 226,
+  "cameras": [
+   "ba-bihamk-kamensko"
+  ],
+  "elevationM": 780
+ },
+ {
+  "id": "ba-gp-osoje",
+  "key": "osoje",
+  "name": "Osoje",
+  "lat": 43.4603,
+  "lon": 17.28594,
+  "country": "HR",
+  "neighbourCrossing": null,
+  "coordSource": "osm",
+  "outwardBearingDeg": 207,
+  "cameras": [],
+  "elevationM": 668
+ },
+ {
+  "id": "ba-gp-strmica",
+  "key": "strmica",
+  "name": "Strmica",
+  "lat": 44.17649,
+  "lon": 16.26319,
+  "country": "HR",
+  "neighbourCrossing": "Strmica",
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 271,
+  "cameras": [],
+  "elevationM": 432
+ },
+ {
+  "id": "ba-gp-ripac",
+  "key": "ripac",
+  "name": "Ripač",
+  "lat": 44.7139,
+  "lon": 15.92787,
+  "country": "HR",
+  "neighbourCrossing": null,
+  "coordSource": "osm",
+  "outwardBearingDeg": 293,
+  "cameras": [],
+  "elevationM": 459
+ },
+ {
+  "id": "ba-gp-izacic",
+  "key": "izacic",
+  "name": "Izačić",
+  "lat": 44.87515,
+  "lon": 15.76401,
+  "country": "HR",
+  "neighbourCrossing": "Ličko Petrovo Selo",
+  "coordSource": "osm",
+  "outwardBearingDeg": 297,
+  "cameras": [
+   "ba-bihamk-izacic",
+   "ba-amsrs-iz01-18",
+   "ba-amsrs-iz02-18"
+  ],
+  "elevationM": 347
+ },
+ {
+  "id": "ba-gp-hadzin-potok",
+  "key": "hadzin-potok",
+  "name": "Hadžin Potok",
+  "lat": 45.06235,
+  "lon": 15.74468,
+  "country": "HR",
+  "neighbourCrossing": null,
+  "coordSource": "osm",
+  "outwardBearingDeg": 302,
+  "cameras": [],
+  "elevationM": 249
+ },
+ {
+  "id": "ba-gp-vaganj",
+  "key": "vaganj",
+  "name": "Vaganj",
+  "lat": 43.78081,
+  "lon": 16.74407,
+  "country": "HR",
+  "neighbourCrossing": null,
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 243,
+  "cameras": [],
+  "elevationM": 870
+ },
+ {
+  "id": "ba-gp-orahov-do",
+  "key": "orahov-do",
+  "name": "Orahov Do",
+  "lat": 42.8099,
+  "lon": 17.89157,
+  "country": "HR",
+  "neighbourCrossing": null,
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 177,
+  "cameras": [],
+  "elevationM": 320
+ },
+ {
+  "id": "ba-gp-duzi",
+  "key": "duzi",
+  "name": "Duži",
+  "lat": 42.91213,
+  "lon": 17.67052,
+  "country": "HR",
+  "neighbourCrossing": null,
+  "coordSource": "bihamk",
+  "outwardBearingDeg": 184,
+  "cameras": [],
+  "elevationM": 116
+ },
+ {
+  "id": "ba-gp-svilaj",
+  "key": "svilaj",
+  "name": "Svilaj",
+  "lat": 45.10147,
+  "lon": 18.30414,
+  "country": "HR",
+  "neighbourCrossing": "Svilaj",
+  "coordSource": "osm",
+  "outwardBearingDeg": 22,
+  "cameras": [
+   "ba-amsrs-sv01-14",
+   "ba-amsrs-sv02-14"
+  ],
+  "elevationM": 86
+ },
+ {
+  "id": "ba-gp-gradiska",
+  "key": "gradiska",
+  "name": "Gradiška",
+  "lat": 45.14716,
+  "lon": 17.25417,
+  "country": "HR",
+  "neighbourCrossing": "Stara Gradiška",
+  "coordSource": "osm",
+  "outwardBearingDeg": 339,
+  "cameras": [],
+  "elevationM": 95
+ },
+ {
+  "id": "ba-gp-gradiska-novi-most",
+  "key": "gradiska-novi-most",
+  "name": "Gradiška - novi most",
+  "lat": 45.13584,
+  "lon": 17.20374,
+  "country": "HR",
+  "neighbourCrossing": "Gornji Varoš",
+  "coordSource": "osm",
+  "outwardBearingDeg": 337,
+  "cameras": [
+   "ba-amsrs-ca02-17",
+   "ba-amsrs-ca01-17"
+  ],
+  "elevationM": 92
+ }
+]

@@ -201,6 +201,23 @@ export const WARENDORF_IMAGE_ORIGINS = Object.freeze([
   'http://webcam.warendorf.de/',
   'https://www.kreis-warendorf.de/',
 ]);
+/**
+ * Bosnia and Herzegovina: BIHAMK road/border cameras and AMS RS border-crossing
+ * cameras from a curated catalog file. Both hosts serve plain JPEG stills at
+ * stable paths; only these exact path shapes are registered.
+ */
+export const DEFAULT_BOSNIA_SOURCE_FILE = 'config/cctv_sources.bosnia.json';
+export const BOSNIA_IMAGE_URL_PATTERNS = Object.freeze([
+  /^https:\/\/video-nadzor\.bihamk\.ba\/videosurveillence\/[A-Z0-9]{2,24}\.jpg$/,
+  /^https:\/\/gp\.satwork\.net\/AMSRS_\d{2}_GP_[A-Z]{2}\d{2}\/slika\.jpg$/,
+]);
+/** Bounding box of Bosnia and Herzegovina (with border-crossing margin). */
+export const BOSNIA_BOUNDS = Object.freeze({
+  minLat: 42.4,
+  maxLat: 45.4,
+  minLon: 15.6,
+  maxLon: 19.8,
+});
 /** Live Traffic NSW (Transport for NSW): keyless public camera catalog. */
 export const NSW_CAMERAS_URL =
   'https://data.livetraffic.com/cameras/traffic-cam.json';
