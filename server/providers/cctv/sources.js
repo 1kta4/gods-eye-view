@@ -45,6 +45,9 @@ import {
   TARKTEE_ANCHORS,
   DEFAULT_WARENDORF_SOURCE_FILE,
   WARENDORF_IMAGE_ORIGINS,
+  DEFAULT_BOSNIA_SOURCE_FILE,
+  BOSNIA_IMAGE_URL_PATTERNS,
+  BOSNIA_BOUNDS,
   NSW_CAMERAS_URL,
   NSW_IMAGE_ORIGIN,
   DEFAULT_NSW_MAX_SOURCES,
@@ -1288,6 +1291,92 @@ export function loadWarendorfSourcesFromCatalog({
     });
   }
   console.log('[CCTV] Loaded Warendorf camera sources:', cameras.length);
+  return cameras;
+}
+
+/**
+ * Load the Bosnia and Herzegovina cameras (BIHAMK road and border-crossing
+ * stills, AMS RS border-crossing stills) from the curated catalog file. Only
+ * the two official still-image path shapes are registered; rows outside BiH
+ * or with any other URL are dropped.
+ *
+ * @returns {Array<object>} Normalized camera source objects.
+ */
+export function loadBosniaSourcesFromCatalog({
+  sourceRoot = process.cwd(),
+} = {}) {
+  const sourceFile =
+    process.env.CCTV_BOSNIA_SOURCES_FILE || DEFAULT_BOSNIA_SOURCE_FILE;
+  const resolved = path.isAbsolute(sourceFile)
+    ? sourceFile
+    : path.resolve(sourceRoot, sourceFile);
+  let rows = [];
+  try {
+    if (!fs.existsSync(resolved)) {
+      console.warn('[CCTV] Bosnia source file missing:', resolved);
+      return [];
+    }
+    const parsed = JSON.parse(fs.readFileSync(resolved, 'utf8'));
+    rows = Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    console.warn(
+      '[CCTV] Bosnia source file read error:',
+      error?.message || error,
+    );
+    return [];
+  }
+  const cameras = [];
+  const seen = new Set();
+  for (const item of rows) {
+    if (!item || typeof item !== 'object') continue;
+    const id = typeof item.id === 'string' ? item.id.trim() : '';
+    const url = typeof item.url === 'string' ? item.url.trim() : '';
+    if (!id || seen.has(id)) continue;
+    if (!BOSNIA_IMAGE_URL_PATTERNS.some((pattern) => pattern.test(url)))
+      continue;
+    const lat = typeof item.lat === 'number' ? item.lat : NaN;
+    const lon = typeof item.lon === 'number' ? item.lon : NaN;
+    if (
+      !isPlausibleLatLon(lat, lon) ||
+      lat < BOSNIA_BOUNDS.minLat ||
+      lat > BOSNIA_BOUNDS.maxLat ||
+      lon < BOSNIA_BOUNDS.minLon ||
+      lon > BOSNIA_BOUNDS.maxLon
+    )
+      continue;
+    const heading = toFiniteNumber(item.headingDeg, NaN);
+    seen.add(id);
+    cameras.push({
+      id,
+      name: String(item.name || id).trim(),
+      city: String(item.city || 'Bosnia and Herzegovina'),
+      cityId: 'bosnia',
+      provider: String(item.provider || 'BIHAMK'),
+      code: typeof item.code === 'string' ? item.code : undefined,
+      lat,
+      lon,
+      headingDeg: Number.isFinite(heading)
+        ? ((heading % 360) + 360) % 360
+        : fallbackHeadingFromId(id),
+      headingConfidence: Number.isFinite(heading)
+        ? String(item.headingConfidence || '').toLowerCase() === 'high'
+          ? 'high'
+          : 'low'
+        : 'low',
+      pitchDeg: toFiniteNumber(item.pitchDeg, -16),
+      fovDeg: toFiniteNumber(item.fovDeg, 64),
+      rangeM: toFiniteNumber(item.rangeM, 200),
+      mountHeightM: toFiniteNumber(item.mountHeightM, 7),
+      groundElevationM: toFiniteNumber(item.groundElevationM, 0),
+      feedType: 'image',
+      url,
+      snapshotUrl: url,
+      sourceKind: String(item.sourceKind || 'bihamk-road-camera'),
+      license: String(item.license || ''),
+      poseSource: Number.isFinite(heading) ? 'curated' : undefined,
+    });
+  }
+  console.log('[CCTV] Loaded Bosnia camera sources:', cameras.length);
   return cameras;
 }
 
