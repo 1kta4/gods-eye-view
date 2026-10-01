@@ -1,0 +1,43 @@
+{
+  "source": "https://www.zfbh.ba/red-voznje/",
+  "retrieved": "2026-10-01",
+  "period": "ŽFBiH timetable 2025/2026",
+  "routes": {
+    "Sarajevo–Čapljina": ["Sarajevo", "Hadžići", "Pazarić", "Konjic", "Jablanica", "Drežnica", "Mostar", "Žitomislići", "Čapljina"],
+    "Sarajevo–Maglaj": ["Sarajevo", "Podlugovi", "Visoko", "Kakanj", "Zenica", "Nemila", "Žepče", "Zavidovići", "Maglaj"]
+  },
+  "services": [
+    { "train": "720", "rank": "fast", "from": "Čapljina", "to": "Sarajevo", "dep": "06:03", "arr": "08:35", "route": "Sarajevo–Čapljina" },
+    { "train": "723", "rank": "fast", "from": "Sarajevo", "to": "Čapljina", "dep": "07:15", "arr": "09:40", "route": "Sarajevo–Čapljina" },
+    { "train": "722", "rank": "fast", "from": "Čapljina", "to": "Sarajevo", "dep": "16:42", "arr": "19:07", "route": "Sarajevo–Čapljina" },
+    { "train": "721", "rank": "fast", "from": "Sarajevo", "to": "Čapljina", "dep": "16:46", "arr": "19:18", "route": "Sarajevo–Čapljina" },
+    { "train": "711", "rank": "fast", "from": "Maglaj", "to": "Sarajevo", "dep": "06:07", "arr": "08:47", "route": "Sarajevo–Maglaj", "note": "not on Sundays" },
+    { "train": "710", "rank": "fast", "from": "Sarajevo", "to": "Maglaj", "dep": "16:28", "arr": "19:01", "route": "Sarajevo–Maglaj", "note": "not on Saturdays" },
+    { "train": "2101", "rank": "local", "from": "Maglaj", "to": "Zenica", "dep": "04:48", "arr": "06:21", "route": "Sarajevo–Maglaj" },
+    { "train": "2102", "rank": "local", "from": "Zenica", "to": "Maglaj", "dep": "15:36", "arr": "17:08", "route": "Sarajevo–Maglaj" },
+    { "train": "2150", "rank": "local", "from": "Sarajevo", "to": "Zenica", "dep": "04:44", "arr": "06:28", "route": "Sarajevo–Maglaj", "note": "weekdays" },
+    { "train": "2151", "rank": "local", "from": "Zenica", "to": "Sarajevo", "dep": "04:59", "arr": "06:39", "route": "Sarajevo–Maglaj" },
+    { "train": "2156", "rank": "local", "from": "Sarajevo", "to": "Zenica", "dep": "15:41", "arr": "17:25", "route": "Sarajevo–Maglaj", "note": "weekdays" },
+    { "train": "2157", "rank": "local", "from": "Zenica", "to": "Sarajevo", "dep": "15:32", "arr": "17:42", "route": "Sarajevo–Maglaj", "note": "weekdays" },
+    { "train": "2160", "rank": "local", "from": "Sarajevo", "to": "Visoko", "dep": "05:24", "arr": "06:12", "note": "weekdays" },
+    { "train": "2161", "rank": "local", "from": "Visoko", "to": "Sarajevo", "dep": "06:48", "arr": "07:32", "note": "weekdays" },
+    { "train": "2162", "rank": "local", "from": "Sarajevo", "to": "Visoko", "dep": "08:17", "arr": "09:04", "note": "weekdays" },
+    { "train": "2163", "rank": "local", "from": "Visoko", "to": "Sarajevo", "dep": "09:29", "arr": "10:13", "note": "weekdays" },
+    { "train": "2168", "rank": "local", "from": "Sarajevo", "to": "Visoko", "dep": "17:21", "arr": "18:05", "note": "weekdays" },
+    { "train": "2169", "rank": "local", "from": "Visoko", "to": "Sarajevo", "dep": "18:36", "arr": "19:20", "note": "weekdays" },
+    { "train": "2170", "rank": "local", "from": "Sarajevo", "to": "Visoko", "dep": "19:45", "arr": "20:29" },
+    { "train": "2171", "rank": "local", "from": "Visoko", "to": "Sarajevo", "dep": "20:40", "arr": "21:24" },
+    { "train": "2402", "rank": "local", "from": "Pazarić", "to": "Sarajevo", "dep": "06:37", "arr": "07:11", "note": "weekdays" },
+    { "train": "2403", "rank": "local", "from": "Sarajevo", "to": "Pazarić", "dep": "07:34", "arr": "08:08" },
+    { "train": "2404", "rank": "local", "from": "Pazarić", "to": "Sarajevo", "dep": "08:25", "arr": "08:59", "note": "weekdays" },
+    { "train": "2405", "rank": "local", "from": "Sarajevo", "to": "Pazarić", "dep": "09:56", "arr": "10:30", "note": "weekdays" },
+    { "train": "2406", "rank": "local", "from": "Pazarić", "to": "Sarajevo", "dep": "11:01", "arr": "11:35" },
+    { "train": "2407", "rank": "local", "from": "Sarajevo", "to": "Pazarić", "dep": "11:55", "arr": "12:29" },
+    { "train": "2408", "rank": "local", "from": "Pazarić", "to": "Sarajevo", "dep": "12:44", "arr": "13:18", "note": "weekdays" },
+    { "train": "2409", "rank": "local", "from": "Sarajevo", "to": "Pazarić", "dep": "14:30", "arr": "15:04", "note": "weekdays" },
+    { "train": "2410", "rank": "local", "from": "Pazarić", "to": "Sarajevo", "dep": "16:10", "arr": "16:44" },
+    { "train": "2411", "rank": "local", "from": "Sarajevo", "to": "Pazarić", "dep": "17:00", "arr": "17:34", "note": "weekdays" },
+    { "train": "2412", "rank": "local", "from": "Pazarić", "to": "Sarajevo", "dep": "18:14", "arr": "18:48", "note": "weekdays" },
+    { "train": "2413", "rank": "local", "from": "Sarajevo", "to": "Pazarić", "dep": "19:38", "arr": "20:12" }
+  ]
+}

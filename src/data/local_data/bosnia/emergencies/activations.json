@@ -1,0 +1,270 @@
+{
+ "generated": "2026-10-01",
+ "activations": [
+  {
+   "code": "EMSR922",
+   "name": "Wildfire in Montenegro and Bosnia and Herzegovina",
+   "category": "fire",
+   "subCategory": "Land fire: brush, bush, pasture",
+   "eventTime": "2026-08-14T22:00:00",
+   "activationTime": "2026-08-15T15:36:00",
+   "countries": [
+    "Bosnia and Herzegovina",
+    "Montenegro"
+   ],
+   "reason": "Starting from 14 August at 22:00 UTC  a wildfire started to spread on different areas.  The most serious fires were located near Herceg Novi (Bijela and Baošići) and Ulcinj, where strong winds helped them to spread.\r\nSeveral homes were threatened, and some residents were temporarily evacuated as a precaution.\r\nAdditional fires were reported near Bar, Nikšić, Kolašin, and Cetinje. Firefighters, volunteers, military, and AFFF with planes and helicopters were actively engaged. Copernicus EMS Rapid Mapping was requested to provide burnt\r\narea delineation and damage assessment emergency mapping.",
+   "lon": 18.6613,
+   "lat": 43.0416,
+   "aois": [
+    "Strasevina",
+    "Gjerana",
+    "Maganik i Velje duboko",
+    "Klopot Momce i Krzanja",
+    "Krstac"
+   ],
+   "aoisInBiH": [
+    "Krstac"
+   ],
+   "products": 68,
+   "mappedHa": {
+    "fire": 39.9
+   },
+   "stats": {
+    "Roads [km]": 90,
+    "max_extent": 15960,
+    "Population [No.]": 70,
+    "Built-up area [ha]": 2,
+    "Identified buildings [No.]": 48
+   },
+   "reportLink": "https://storymaps.arcgis.com/stories/081cee558dc64d9d9f844dc695818302",
+   "geometry": "EMSR922.geojson"
+  },
+  {
+   "code": "EMSR854",
+   "name": "Flood in Bosnia and Herzegovina",
+   "category": "flood",
+   "subCategory": "Riverine flood",
+   "eventTime": "2026-01-06T15:45:00",
+   "activationTime": "2026-01-05T16:05:00",
+   "countries": [
+    "Bosnia and Herzegovina"
+   ],
+   "reason": "On 05 January 2026, the service was activated following an EFAS early warning on flood risk in the area of Herzegovina, particularly in the upper catchment of the Neretva River (municipalities of Konjic and Kalinovik). Adverse weather conditions, including heavy snowfall, had already caused disruptions to transport and electricity supply in several affected areas. Copernicus EMS Rapid Mapping was requested to provide flood extent and damage assessment emergency mapping.",
+   "lon": 17.3418,
+   "lat": 43.3729,
+   "aois": [
+    "Konjic-Kalinovik",
+    "Capljina"
+   ],
+   "aoisInBiH": [
+    "Konjic-Kalinovik",
+    "Capljina"
+   ],
+   "products": 3,
+   "mappedHa": {
+    "flood": 630.2
+   },
+   "stats": {
+    "Roads [km]": 54.0,
+    "max_extent": 1526.7,
+    "Built-up [ha]": 3.3,
+    "Population [No.]": 220
+   },
+   "reportLink": "https://storymaps.arcgis.com/stories/0e1ea59c1b594d17a60a0157de3ef45b",
+   "geometry": "EMSR854.geojson"
+  },
+  {
+   "code": "EMSR797",
+   "name": "Flood in northern Bosnia-Herzegovina",
+   "category": "flood",
+   "subCategory": "Coastal flood",
+   "eventTime": "2025-03-27T18:00:00",
+   "activationTime": "2025-03-27T14:57:00",
+   "countries": [
+    "Bosnia and Herzegovina"
+   ],
+   "reason": "On 27 March 2025 at 15:00, a flood was forecast to hit areas in Northern Bosnia-Herzegovina. The event was expected to peak in the following days. Copernicus EMS Rapid Mapping was requested to provide an initial rough estimation and flood extent emergency mapping.",
+   "lon": 17.7844,
+   "lat": 44.8327,
+   "aois": [
+    "Kotor Varos",
+    "Stanari",
+    "Teslic"
+   ],
+   "aoisInBiH": [
+    "Kotor Varos",
+    "Stanari",
+    "Teslic"
+   ],
+   "products": 6,
+   "mappedHa": {
+    "flood": 356.2
+   },
+   "stats": {
+    "Roads [km]": 3.3,
+    "max_extent": 348,
+    "Built-up [ha]": 0.0,
+    "Built-up [No.]": "N/A",
+    "Population [No.]": 40,
+    "Event Extent [ha]": 198.4
+   },
+   "reportLink": "https://storymaps.arcgis.com/stories/a20867009e9a4cd1a7eaada48dc73185",
+   "geometry": "EMSR797.geojson"
+  },
+  {
+   "code": "EMSR770",
+   "name": "Flood in Bosnia and Herzegovina",
+   "category": "flood",
+   "subCategory": "Coastal flood",
+   "eventTime": "2024-10-04T00:00:00",
+   "activationTime": "2024-10-04T15:59:00",
+   "countries": [
+    "Bosnia and Herzegovina"
+   ],
+   "reason": "On the 4 October 2024, a flood is reported to have affected the municipalities of Jablanica and Konjic in Bosnia and Herzegovina. The event is on-going with interruptions to the road network and communication network. Due to large floods and landslides, a large population is at risk. Copernicus EMS Rapid Mapping is requested to provide initial rough estimation, flood extent and damage assessment emergency mapping.",
+   "lon": 17.9577,
+   "lat": 43.9022,
+   "aois": [
+    "Konjic",
+    "Jablanica",
+    "Bakovici"
+   ],
+   "aoisInBiH": [
+    "Konjic",
+    "Jablanica",
+    "Bakovici"
+   ],
+   "products": 7,
+   "mappedHa": {
+    "flood": 88.6,
+    "landslide": 171.6
+   },
+   "stats": {
+    "Roads [km]": 18.3,
+    "max_extent": 253.1,
+    "Built-up [n°]": 720,
+    "Population [No.]": 600,
+    "Event Extent [ha]": 253.1
+   },
+   "reportLink": "https://storymaps.arcgis.com/stories/8a4d435ddac642a69d0104e4e63aa445",
+   "geometry": "EMSR770.geojson",
+   "note": "Floods, landslides and debris flows around Jablanica (Donja Jablanica) and Konjic; 27 people died."
+  },
+  {
+   "code": "EMSR665",
+   "name": "Flood in Bosnia and Herzegovina",
+   "category": "flood",
+   "subCategory": "Riverine flood",
+   "eventTime": "2023-05-17T11:00:00",
+   "activationTime": "2023-05-17T09:42:00",
+   "countries": [
+    "Bosnia and Herzegovina"
+   ],
+   "reason": "Heavy rain affecting Bosnia and Herzegovina caused flooding in the northern part of the country. A state of emergency has been declared in several cities and municipalities. In several communities around Sana and Una rivers, buildings and houses have been flooded. Landslides have been triggered by the floods. Due to water overflows, the traffic on several roads has been interrupted. Copernicus EMS Rapid Mapping is requested to provide flood extent and damage assessment emergency mapping.",
+   "lon": 16.6507,
+   "lat": 44.9971,
+   "aois": [
+    "Prijedor",
+    "Bihac"
+   ],
+   "aoisInBiH": [
+    "Prijedor",
+    "Bihac"
+   ],
+   "products": 2,
+   "mappedHa": {
+    "flood": 463.0
+   },
+   "stats": {},
+   "reportLink": null,
+   "geometry": "EMSR665.geojson"
+  },
+  {
+   "code": "EMSR616",
+   "name": "Fire in Montenegro and Bosnia and Herzegovina",
+   "category": "fire",
+   "subCategory": null,
+   "eventTime": null,
+   "activationTime": "2022-08-05T11:26:00",
+   "countries": [
+    "Bosnia and Herzegovina",
+    "Montenegro"
+   ],
+   "reason": "Wildfire near the BiH–Montenegro border (August 2022).",
+   "lon": 18.49336,
+   "lat": 42.44861,
+   "aois": [],
+   "aoisInBiH": [],
+   "products": 4,
+   "mappedHa": {},
+   "stats": {},
+   "reportLink": null,
+   "geometry": null
+  },
+  {
+   "code": "EMSR572",
+   "name": "Flood in Bosnia and Herzegovina",
+   "category": "flood",
+   "subCategory": null,
+   "eventTime": null,
+   "activationTime": "2022-04-01T09:34:00",
+   "countries": [
+    "Bosnia and Herzegovina"
+   ],
+   "reason": "Heavy rains are causing rivers to overflow in the southern part of Bosnia and Herzegovina. The Copernicus EMS Rapid Mapping was requested to monitor the flood event.",
+   "lon": 17.701,
+   "lat": 43.06061,
+   "aois": [],
+   "aoisInBiH": [],
+   "products": 1,
+   "mappedHa": {},
+   "stats": {},
+   "reportLink": null,
+   "geometry": null
+  },
+  {
+   "code": "EMSR358",
+   "name": "Flood in Bosnia and Herzegovina",
+   "category": "flood",
+   "subCategory": null,
+   "eventTime": null,
+   "activationTime": "2019-05-14T14:17:00",
+   "countries": [
+    "Bosnia and Herzegovina"
+   ],
+   "reason": "Riverine flooding in northern BiH (May 2019).",
+   "lon": 18.0807,
+   "lat": 44.6692,
+   "aois": [],
+   "aoisInBiH": [],
+   "products": 10,
+   "mappedHa": {},
+   "stats": {},
+   "reportLink": null,
+   "geometry": null
+  },
+  {
+   "code": "EMSR087",
+   "name": "Floods in Bosnia and Herzegovina",
+   "category": "flood",
+   "subCategory": null,
+   "eventTime": null,
+   "activationTime": "2014-05-16T12:30:00",
+   "countries": [
+    "Bosnia and Herzegovina",
+    "Serbia"
+   ],
+   "reason": "May 2014 Sava/Bosna basin floods after cyclone Tamara (Yvette): record rainfall flooded Doboj, Šamac, Bijeljina, Orašje, Brčko and Maglaj; 48 delineation and reference products over Doboj, Balatun, Orašje, Brčko and Bijeljina.",
+   "lon": 18.573,
+   "lat": 44.326,
+   "aois": [],
+   "aoisInBiH": [],
+   "products": 48,
+   "mappedHa": {},
+   "stats": {},
+   "reportLink": null,
+   "geometry": null,
+   "note": "Catastrophic Sava and Bosna basin floods of May 2014."
+  }
+ ]
+}
