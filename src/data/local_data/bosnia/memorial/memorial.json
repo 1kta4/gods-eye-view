@@ -1,0 +1,494 @@
+{
+  "schemaVersion": 1,
+  "title": "War Memory 1992–95",
+  "compiled": "2026-10-01",
+  "note": "Curated reference points. Descriptions summarise findings of the ICTY/IRMCT, the ICJ or courts in Bosnia and Herzegovina, or describe a memorial. No victim-level data. Positions marked approximate are settlement-level.",
+  "sites": [
+    {
+      "id": "srebrenica-potocari",
+      "name": "Srebrenica–Potočari Memorial and Cemetery",
+      "nameLocal": "Memorijalni centar Srebrenica–Potočari",
+      "lat": 44.15806,
+      "lon": 19.30167,
+      "date": "July 1995",
+      "kind": "memorial",
+      "description": "Memorial and cemetery for the victims of the July 1995 Srebrenica genocide, in which Bosnian Serb forces killed more than 8,000 Bosniak men and boys. Genocide was established by the ICTY (Krstić, 2004 and later cases) and by the ICJ (Bosnia and Herzegovina v. Serbia and Montenegro, 2007).",
+      "sources": [
+        { "label": "Memorial Centre", "url": "https://srebrenicamemorial.org/" },
+        { "label": "ICTY – Krstić", "url": "https://www.icty.org/en/case/krstic" },
+        { "label": "ICJ – Case 91", "url": "https://www.icj-cij.org/case/91" },
+        { "label": "ICMP – Geography of Genocide", "url": "https://srebrenica.icmp.int/" }
+      ]
+    },
+    {
+      "id": "kravica",
+      "name": "Kravica warehouse",
+      "nameLocal": "Kravica",
+      "lat": 44.21667,
+      "lon": 19.2,
+      "approximate": true,
+      "date": "13 July 1995",
+      "kind": "site",
+      "description": "Execution site of the Srebrenica genocide: the ICTY found that about 1,000 Bosniak men held in an agricultural warehouse at Kravica were killed on 13 July 1995.",
+      "sources": [
+        { "label": "ICTY – Popović et al.", "url": "https://www.icty.org/en/case/popovic" },
+        { "label": "ICMP – Geography of Genocide", "url": "https://srebrenica.icmp.int/" }
+      ]
+    },
+    {
+      "id": "bratunac",
+      "name": "Bratunac",
+      "lat": 44.18389,
+      "lon": 19.33083,
+      "approximate": true,
+      "date": "May 1992; July 1995",
+      "kind": "site",
+      "description": "In May 1992 Bosniak men were detained and many killed at the Vuk Karadžić school; in July 1995 men from the Srebrenica enclave were held in Bratunac before execution (ICTY Karadžić; Popović et al.).",
+      "sources": [
+        { "label": "ICTY – Karadžić", "url": "https://www.icty.org/en/case/karadzic" },
+        { "label": "ICTY – Popović et al.", "url": "https://www.icty.org/en/case/popovic" }
+      ]
+    },
+    {
+      "id": "markale",
+      "name": "Markale marketplace",
+      "nameLocal": "Markale",
+      "lat": 43.85972,
+      "lon": 18.42417,
+      "date": "5 Feb 1994; 28 Aug 1995",
+      "kind": "site",
+      "description": "Two shell strikes on the Sarajevo market killed dozens of civilians. The ICTY found the shells were fired by Bosnian Serb (VRS) forces besieging the city (Galić for 1994; D. Milošević for 1995).",
+      "sources": [
+        { "label": "ICTY – Galić", "url": "https://www.icty.org/en/case/galic" },
+        { "label": "ICTY – D. Milošević", "url": "https://www.icty.org/en/case/dragomir_milosevic" },
+        { "label": "UNSA – Shelling of Sarajevo", "url": "https://iziz.unsa.ba/" }
+      ]
+    },
+    {
+      "id": "sarajevo-siege",
+      "name": "Siege of Sarajevo",
+      "nameLocal": "Opsada Sarajeva",
+      "lat": 43.856,
+      "lon": 18.413,
+      "approximate": true,
+      "date": "April 1992 – February 1996",
+      "kind": "context",
+      "description": "Sarajevo was besieged for nearly four years; more than 10,000 people were killed. The ICTY convicted VRS commanders for a campaign of sniping and shelling to terrorise the civilian population (Galić; D. Milošević; Karadžić; Mladić).",
+      "sources": [
+        { "label": "ICTY – Galić", "url": "https://www.icty.org/en/case/galic" },
+        { "label": "FAMA – Survival Map", "url": "https://www.famacollection.org/interact/survival-map" },
+        { "label": "UNSA – Shelling of Sarajevo", "url": "https://iziz.unsa.ba/" }
+      ]
+    },
+    {
+      "id": "children-of-sarajevo",
+      "name": "Memorial to the Children Killed in Besieged Sarajevo",
+      "nameLocal": "Spomenik ubijenoj djeci opkoljenog Sarajeva",
+      "lat": 43.8586,
+      "lon": 18.4126,
+      "approximate": true,
+      "date": "1992–1995",
+      "kind": "memorial",
+      "description": "Memorial in Veliki park commemorating the more than 1,500 children killed during the siege of Sarajevo.",
+      "sources": [
+        { "label": "FAMA – Survival Map", "url": "https://www.famacollection.org/interact/survival-map" }
+      ]
+    },
+    {
+      "id": "tunel-spasa",
+      "name": "Tunnel of Hope museum",
+      "nameLocal": "Tunel spasa",
+      "lat": 43.81972,
+      "lon": 18.33722,
+      "date": "1993–1996",
+      "kind": "memorial",
+      "description": "Museum at the Butmir end of the tunnel dug under Sarajevo airport in 1993, the city's main supply route into the besieged area.",
+      "sources": [
+        { "label": "Wikipedia – Sarajevo Tunnel", "url": "https://en.wikipedia.org/wiki/Sarajevo_Tunnel" },
+        { "label": "FAMA – Survival Map", "url": "https://www.famacollection.org/interact/survival-map" }
+      ]
+    },
+    {
+      "id": "vraca",
+      "name": "Vraca Memorial Park",
+      "nameLocal": "Spomen-park Vraca",
+      "lat": 43.84346,
+      "lon": 18.39748,
+      "date": "1992–1995",
+      "kind": "memorial",
+      "description": "Second World War memorial park above Grbavica. During the siege it lay on the front line held by Bosnian Serb forces and was badly damaged; it has since been restored.",
+      "sources": [
+        { "label": "Wikipedia – Vraca Memorial Park", "url": "https://en.wikipedia.org/wiki/Vraca_Memorial_Park" }
+      ]
+    },
+    {
+      "id": "sarajevo-roses",
+      "name": "Sarajevo Roses",
+      "nameLocal": "Sarajevske ruže",
+      "lat": 43.8592,
+      "lon": 18.4268,
+      "approximate": true,
+      "date": "1992–1995",
+      "kind": "context",
+      "description": "Mortar-shell scars in the pavement filled with red resin to mark places where shells killed people. The marker is symbolic; roses are found across the city.",
+      "sources": [
+        { "label": "Wikipedia – Sarajevo Rose", "url": "https://en.wikipedia.org/wiki/Sarajevo_Rose" },
+        { "label": "UNSA – Shelling of Sarajevo", "url": "https://iziz.unsa.ba/" }
+      ]
+    },
+    {
+      "id": "dobrinja",
+      "name": "Dobrinja football-match shelling",
+      "nameLocal": "Dobrinja",
+      "lat": 43.82806,
+      "lon": 18.34694,
+      "date": "1 June 1993",
+      "kind": "site",
+      "description": "Shells struck a football match in Dobrinja, killing more than ten people. The ICTY found the shelling was fired from VRS-held territory (Galić).",
+      "sources": [
+        { "label": "ICTY – Galić", "url": "https://www.icty.org/en/case/galic" }
+      ]
+    },
+    {
+      "id": "vijecnica",
+      "name": "Vijećnica – National and University Library",
+      "nameLocal": "Vijećnica",
+      "lat": 43.85912,
+      "lon": 18.43323,
+      "date": "25–26 August 1992",
+      "kind": "site",
+      "description": "The library building was shelled and burned, destroying most of its collections. Restored and reopened in 2014.",
+      "sources": [
+        { "label": "Wikipedia – Sarajevo City Hall", "url": "https://en.wikipedia.org/wiki/Sarajevo_City_Hall" }
+      ]
+    },
+    {
+      "id": "kazani",
+      "name": "Kazani",
+      "nameLocal": "Kazani",
+      "lat": 43.84717,
+      "lon": 18.43547,
+      "date": "1992–1993",
+      "kind": "memorial",
+      "description": "Site on Trebević where civilians, mostly Serbs, were killed by members of an ARBiH unit commanded by Mušan Topalović; members of the unit were convicted by courts in Bosnia and Herzegovina. A memorial marks the site.",
+      "sources": [
+        { "label": "Wikipedia – Kazani pit killings", "url": "https://en.wikipedia.org/wiki/Kazani_pit_killings" }
+      ]
+    },
+    {
+      "id": "omarska",
+      "name": "Omarska camp",
+      "nameLocal": "Omarska",
+      "lat": 44.86917,
+      "lon": 16.88278,
+      "date": "May–August 1992",
+      "kind": "camp",
+      "description": "Detention camp at the Omarska mine complex where Bosniak and Croat detainees were held in inhumane conditions, and many were killed, tortured or abused (ICTY Kvočka et al.; Tadić; Stakić).",
+      "sources": [
+        { "label": "ICTY – Kvočka et al.", "url": "https://www.icty.org/en/case/kvocka" },
+        { "label": "ICTY – Stakić", "url": "https://www.icty.org/en/case/stakic" }
+      ]
+    },
+    {
+      "id": "keraterm",
+      "name": "Keraterm camp",
+      "nameLocal": "Keraterm",
+      "lat": 44.98111,
+      "lon": 16.75389,
+      "date": "May–August 1992",
+      "kind": "camp",
+      "description": "Former ceramics factory in Prijedor used as a detention camp for non-Serb men; many detainees were killed in a mass shooting in Room 3 in July 1992 (ICTY Sikirica et al.; Stakić).",
+      "sources": [
+        { "label": "ICTY – Sikirica et al.", "url": "https://www.icty.org/en/case/sikirica" },
+        { "label": "ICTY – Stakić", "url": "https://www.icty.org/en/case/stakic" }
+      ]
+    },
+    {
+      "id": "trnopolje",
+      "name": "Trnopolje camp",
+      "nameLocal": "Trnopolje",
+      "lat": 44.92333,
+      "lon": 16.87389,
+      "date": "May–November 1992",
+      "kind": "camp",
+      "description": "Detention camp for non-Serb civilians from the Prijedor area, where detainees were beaten, raped and killed (ICTY Stakić; Tadić).",
+      "sources": [
+        { "label": "ICTY – Stakić", "url": "https://www.icty.org/en/case/stakic" },
+        { "label": "ICTY – Tadić", "url": "https://www.icty.org/en/case/tadic" }
+      ]
+    },
+    {
+      "id": "kozarac",
+      "name": "Kozarac",
+      "lat": 44.9706,
+      "lon": 16.8417,
+      "approximate": true,
+      "date": "24–26 May 1992",
+      "kind": "site",
+      "description": "Bosnian Serb forces attacked the predominantly Bosniak town; residents were killed or taken to the Omarska, Keraterm and Trnopolje camps (ICTY Tadić; Stakić).",
+      "sources": [
+        { "label": "ICTY – Tadić", "url": "https://www.icty.org/en/case/tadic" },
+        { "label": "ICTY – Stakić", "url": "https://www.icty.org/en/case/stakic" }
+      ]
+    },
+    {
+      "id": "koricani",
+      "name": "Korićani cliffs",
+      "nameLocal": "Korićanske stijene",
+      "lat": 44.28333,
+      "lon": 17.66667,
+      "approximate": true,
+      "date": "21 August 1992",
+      "kind": "site",
+      "description": "About 200 Bosniak and Croat men taken from the Trnopolje and Keraterm camps were shot by Bosnian Serb police at the cliffs on Mount Vlašić (ICTY Mrđa; Stanišić & Župljanin).",
+      "sources": [
+        { "label": "ICTY – Mrđa", "url": "https://www.icty.org/en/case/mrda" },
+        { "label": "ICTY – Stanišić & Župljanin", "url": "https://www.icty.org/en/case/zupljanin_stanisicm" }
+      ]
+    },
+    {
+      "id": "manjaca",
+      "name": "Manjača camp",
+      "nameLocal": "Manjača",
+      "lat": 44.65583,
+      "lon": 17.02694,
+      "date": "1991–1992",
+      "kind": "camp",
+      "description": "Detention camp near Banja Luka where Bosniak and Croat detainees were held in harsh conditions and mistreated (ICTY Brđanin; Stanišić & Župljanin).",
+      "sources": [
+        { "label": "ICTY – Brđanin", "url": "https://www.icty.org/en/case/brdanin" },
+        { "label": "ICTY – Stanišić & Župljanin", "url": "https://www.icty.org/en/case/zupljanin_stanisicm" }
+      ]
+    },
+    {
+      "id": "ahmici",
+      "name": "Ahmići",
+      "nameLocal": "Ahmići",
+      "lat": 44.14167,
+      "lon": 17.89361,
+      "date": "16 April 1993",
+      "kind": "site",
+      "description": "HVO forces attacked the village in the Lašva Valley, killing more than 100 Bosniak civilians and burning homes and the mosques (ICTY Kupreškić et al.; Blaškić; Kordić & Čerkez).",
+      "sources": [
+        { "label": "ICTY – Kupreškić et al.", "url": "https://www.icty.org/en/case/kupreskic" },
+        { "label": "ICTY – Kordić & Čerkez", "url": "https://www.icty.org/en/case/kordic_cerkez" },
+        { "label": "ICTY – Blaškić", "url": "https://www.icty.org/en/case/blaskic" }
+      ]
+    },
+    {
+      "id": "stupni-do",
+      "name": "Stupni Do",
+      "nameLocal": "Stupni Do",
+      "lat": 44.125,
+      "lon": 18.32361,
+      "date": "23 October 1993",
+      "kind": "site",
+      "description": "HVO forces attacked the Bosniak village near Vareš, killing dozens of residents (ICTY Rajić).",
+      "sources": [
+        { "label": "ICTY – Rajić", "url": "https://www.icty.org/en/case/rajic" }
+      ]
+    },
+    {
+      "id": "grabovica",
+      "name": "Grabovica",
+      "nameLocal": "Grabovica",
+      "lat": 43.584,
+      "lon": 17.722,
+      "approximate": true,
+      "date": "8–9 September 1993",
+      "kind": "site",
+      "description": "Bosnian Croat civilians in the village were killed by ARBiH soldiers. The ICTY found the killings occurred (Halilović; the accused was acquitted of command responsibility).",
+      "sources": [
+        { "label": "ICTY – Halilović", "url": "https://www.icty.org/en/case/halilovic" }
+      ]
+    },
+    {
+      "id": "uzdol",
+      "name": "Uzdol",
+      "nameLocal": "Uzdol",
+      "lat": 43.8097,
+      "lon": 17.6981,
+      "approximate": true,
+      "date": "14 September 1993",
+      "kind": "site",
+      "description": "Bosnian Croat civilians and prisoners were killed in an ARBiH attack on the village near Prozor. The ICTY found the killings occurred (Halilović; the accused was acquitted of command responsibility).",
+      "sources": [
+        { "label": "ICTY – Halilović", "url": "https://www.icty.org/en/case/halilovic" }
+      ]
+    },
+    {
+      "id": "celebici",
+      "name": "Čelebići camp",
+      "nameLocal": "Čelebići",
+      "lat": 43.68361,
+      "lon": 17.89583,
+      "date": "May–December 1992",
+      "kind": "camp",
+      "description": "Detention camp near Konjic where Bosnian Serb detainees were killed, tortured and sexually assaulted by camp staff (ICTY Mucić et al.).",
+      "sources": [
+        { "label": "ICTY – Mucić et al.", "url": "https://www.icty.org/en/case/mucic" }
+      ]
+    },
+    {
+      "id": "heliodrom",
+      "name": "Heliodrom",
+      "nameLocal": "Heliodrom",
+      "lat": 43.34611,
+      "lon": 17.81444,
+      "date": "1993–1994",
+      "kind": "camp",
+      "description": "HVO detention centre near Mostar where thousands of Bosniak detainees were held in poor conditions and used for forced labour on the front line (ICTY Prlić et al.).",
+      "sources": [
+        { "label": "ICTY – Prlić et al.", "url": "https://www.icty.org/en/case/prlic" }
+      ]
+    },
+    {
+      "id": "dretelj",
+      "name": "Dretelj",
+      "nameLocal": "Dretelj",
+      "lat": 43.12639,
+      "lon": 17.70667,
+      "date": "1993",
+      "kind": "camp",
+      "description": "HVO detention camp near Čapljina where Bosniak detainees were held in inhumane conditions (ICTY Prlić et al.).",
+      "sources": [
+        { "label": "ICTY – Prlić et al.", "url": "https://www.icty.org/en/case/prlic" }
+      ]
+    },
+    {
+      "id": "stari-most",
+      "name": "Stari most (Old Bridge), Mostar",
+      "nameLocal": "Stari most",
+      "lat": 43.33728,
+      "lon": 17.81503,
+      "date": "9 November 1993",
+      "kind": "site",
+      "description": "The 16th-century bridge collapsed after HVO tank fire. Its destruction was examined by the ICTY in Prlić et al. It was rebuilt in 2004 and is a UNESCO World Heritage site.",
+      "sources": [
+        { "label": "ICTY – Prlić et al.", "url": "https://www.icty.org/en/case/prlic" },
+        { "label": "UNESCO", "url": "https://whc.unesco.org/en/list/946" }
+      ]
+    },
+    {
+      "id": "tuzla-kapija",
+      "name": "Tuzla Kapija",
+      "nameLocal": "Kapija",
+      "lat": 44.53806,
+      "lon": 18.67611,
+      "date": "25 May 1995",
+      "kind": "memorial",
+      "description": "A shell fired by Bosnian Serb forces struck the crowded Kapija square, killing 71 people, most of them young. The Court of Bosnia and Herzegovina convicted VRS officer Novak Đukić.",
+      "sources": [
+        { "label": "Wikipedia – Tuzla massacre", "url": "https://en.wikipedia.org/wiki/Tuzla_massacre" }
+      ]
+    },
+    {
+      "id": "pionirska",
+      "name": "Pionirska Street, Višegrad",
+      "nameLocal": "Pionirska ulica",
+      "lat": 43.78611,
+      "lon": 19.29917,
+      "date": "14 June 1992",
+      "kind": "site",
+      "description": "About 60 Bosniak civilians, including women, children and elderly people, were locked in a house and burned alive (ICTY Lukić & Lukić).",
+      "sources": [
+        { "label": "ICTY – Lukić & Lukić", "url": "https://www.icty.org/en/case/milan_lukic_sredoje_lukic" }
+      ]
+    },
+    {
+      "id": "bikavac",
+      "name": "Bikavac, Višegrad",
+      "nameLocal": "Bikavac",
+      "lat": 43.77972,
+      "lon": 19.29333,
+      "date": "27 June 1992",
+      "kind": "site",
+      "description": "About 60 Bosniak civilians were burned alive in a house in the Bikavac neighbourhood (ICTY Lukić & Lukić).",
+      "sources": [
+        { "label": "ICTY – Lukić & Lukić", "url": "https://www.icty.org/en/case/milan_lukic_sredoje_lukic" }
+      ]
+    },
+    {
+      "id": "foca",
+      "name": "Foča",
+      "lat": 43.5063,
+      "lon": 18.7765,
+      "approximate": true,
+      "date": "April 1992 – 1993",
+      "kind": "site",
+      "description": "After the takeover of the town, non-Serb men were held at the KP Dom prison and Bosniak women and girls were detained and raped at sites including the Partizan sports hall. The ICTY's Kunarac et al. case was the first to convict rape as a crime against humanity.",
+      "sources": [
+        { "label": "ICTY – Kunarac et al.", "url": "https://www.icty.org/en/case/kunarac" },
+        { "label": "ICTY – Krnojelac", "url": "https://www.icty.org/en/case/krnojelac" }
+      ]
+    },
+    {
+      "id": "bijeljina",
+      "name": "Bijeljina",
+      "lat": 44.7575,
+      "lon": 19.2175,
+      "approximate": true,
+      "date": "1–2 April 1992",
+      "kind": "site",
+      "description": "Serb paramilitary forces took over the town and killed Bosniak civilians; one of the first mass killings of the war (ICTY Karadžić; Stanišić & Simatović).",
+      "sources": [
+        { "label": "ICTY – Karadžić", "url": "https://www.icty.org/en/case/karadzic" },
+        { "label": "IRMCT – Stanišić & Simatović", "url": "https://www.irmct.org/en/cases/mict-15-96" }
+      ]
+    },
+    {
+      "id": "zvornik",
+      "name": "Zvornik",
+      "lat": 44.39,
+      "lon": 19.1,
+      "approximate": true,
+      "date": "April–May 1992",
+      "kind": "site",
+      "description": "Serb forces took over the town and expelled or killed much of its Bosniak population; detainees were killed at several sites in the municipality (ICTY Karadžić; Stanišić & Simatović).",
+      "sources": [
+        { "label": "ICTY – Karadžić", "url": "https://www.icty.org/en/case/karadzic" },
+        { "label": "IRMCT – Stanišić & Simatović", "url": "https://www.irmct.org/en/cases/mict-15-96" }
+      ]
+    },
+    {
+      "id": "luka-brcko",
+      "name": "Luka camp, Brčko",
+      "nameLocal": "Luka",
+      "lat": 44.87722,
+      "lon": 18.81111,
+      "date": "May–July 1992",
+      "kind": "camp",
+      "description": "Detention camp at the Brčko port warehouses where Bosniak and Croat detainees were killed and mistreated (ICTY Jelisić).",
+      "sources": [
+        { "label": "ICTY – Jelisić", "url": "https://www.icty.org/en/case/jelisic" }
+      ]
+    },
+    {
+      "id": "batkovic",
+      "name": "Batković camp",
+      "nameLocal": "Batković",
+      "lat": 44.85361,
+      "lon": 19.19639,
+      "date": "1992–1995",
+      "kind": "camp",
+      "description": "Detention camp near Bijeljina for Bosniak and Croat detainees, who were mistreated and used for forced labour (ICTY Karadžić).",
+      "sources": [
+        { "label": "ICTY – Karadžić", "url": "https://www.icty.org/en/case/karadzic" }
+      ]
+    },
+    {
+      "id": "sijekovac",
+      "name": "Sijekovac",
+      "nameLocal": "Sijekovac",
+      "lat": 45.11667,
+      "lon": 17.97833,
+      "approximate": true,
+      "date": "26 March 1992",
+      "kind": "site",
+      "description": "Serb civilians were killed in the village near Bosanski Brod at the start of the war. A memorial commemorates the victims.",
+      "sources": [
+        { "label": "Wikipedia – Sijekovac killings", "url": "https://en.wikipedia.org/wiki/Sijekovac_killings" }
+      ]
+    }
+  ]
+}
