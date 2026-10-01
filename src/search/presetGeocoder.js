@@ -1,14 +1,21 @@
+import { foldedSpellings } from './diacritics.js';
+
 /** Half-width of the box a bundled landmark is framed with, in degrees. */
 const LANDMARK_HALF_SPAN_DEG = 0.005;
 
-/** Fold a name to the form an exact comparison uses: case, spacing, punctuation. */
-function normalizeName(value) {
-  return String(value || '')
-    .toLowerCase()
-    .normalize('NFKD')
-    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+/**
+ * Fold a name to the forms an exact comparison uses: case, accents, spacing,
+ * punctuation. Accents fold away so a plain keyboard reaches a local name
+ * ("Bascarsija" → Baščaršija, "Brcko" → Brčko); `đ` folds to both "dj" and "d".
+ * @returns {string[]}
+ */
+function normalizeNames(value) {
+  return foldedSpellings(value || '').map((folded) =>
+    folded
+      .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+      .replace(/\s+/g, ' ')
+      .trim(),
+  );
 }
 
 /** Keep a generated box inside the poles and inside the dateline. */
@@ -37,9 +44,10 @@ function boundedBox(lat, lon, halfSpan) {
 function indexPresets(presets) {
   const byName = new Map();
   const remember = (key, place) => {
-    const name = normalizeName(key);
-    if (name && !byName.has(name)) byName.set(name, place);
+    for (const name of normalizeNames(key))
+      if (name && !byName.has(name)) byName.set(name, place);
   };
+  const aliasesOf = (row) => (Array.isArray(row?.aliases) ? row.aliases : []);
 
   for (const [cityId, city] of Object.entries(presets || {})) {
     const anchor = city?.pois?.[0];
@@ -73,13 +81,14 @@ function indexPresets(presets) {
       };
       remember(cityId, place);
       remember(city.name, place);
+      for (const alias of aliasesOf(city)) remember(alias, place);
     }
 
     for (const poi of city?.pois || []) {
       const poiLat = Number(poi?.lat);
       const poiLon = Number(poi?.lon);
       if (!Number.isFinite(poiLat) || !Number.isFinite(poiLon)) continue;
-      remember(poi.name, {
+      const landmark = {
         lat: poiLat,
         lng: poiLon,
         name: poi.name,
@@ -87,7 +96,9 @@ function indexPresets(presets) {
         types: ['point_of_interest'],
         exact: true,
         viewport: boundedBox(poiLat, poiLon, LANDMARK_HALF_SPAN_DEG),
-      });
+      };
+      remember(poi.name, landmark);
+      for (const alias of aliasesOf(poi)) remember(alias, landmark);
     }
   }
   return byName;
@@ -96,15 +107,17 @@ function indexPresets(presets) {
 /**
  * Answer the bundled city and landmark names without asking anyone.
  *
- * Matching is exact on the city id, the city name, or a landmark name; anything
- * else is passed on to the network geocoders untouched.
+ * Matching is exact on the city id, the city name, a landmark name, or one of
+ * their listed `aliases` (accent-insensitive); anything else is passed on to
+ * the network geocoders untouched.
  */
 export function createPresetGeocoder({ presets = {} } = {}) {
   const byName = indexPresets(presets);
   return {
     async geocode(query, { signal } = {}) {
       signal?.throwIfAborted();
-      const place = byName.get(normalizeName(query));
+      const [key] = normalizeNames(query);
+      const place = byName.get(key);
       return place
         ? { place, answered: true }
         : { place: null, answered: true };

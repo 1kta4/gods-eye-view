@@ -89,6 +89,29 @@ export function environmentalLabel(choice = ENVIRONMENTAL_LABEL_CHOICE) {
 
 /** @type {Readonly<Record<string, object>>} */
 export const FIRST_RUN_MISSIONS = Object.freeze({
+  // This fork's home mission: fly to the whole-country view and turn on the
+  // Bosnia layers that answer "what is happening here now", plus live flights.
+  //
+  // BEST EFFORT, unlike ENVIRONMENTAL: the tile's promise is the place, and
+  // seven independent feeds (several of them IN PRODUCTION placeholders whose
+  // toggle deliberately snaps back) must not strand the visitor on the card.
+  // A layer that will not enable is reported in `failedLayerIds` and stays
+  // honest at its own row; the mission still lands.
+  bosnia: Object.freeze({
+    kind: 'region',
+    region: 'bosnia-and-herzegovina',
+    bestEffortLayers: true,
+    layerIds: Object.freeze([
+      'ba-boundaries',
+      'ba-earthquakes',
+      'ba-rivers',
+      'ba-air-quality',
+      'ba-weather-now',
+      'ba-border-crossings',
+      'flights',
+    ]),
+    busyText: 'Flying to Bosnia and Herzegovina…',
+  }),
   contacts: Object.freeze({
     kind: 'context',
     contextMode: 'contacts',
@@ -258,11 +281,12 @@ export function rememberFirstRunSessionDismissed(sessionStorageRef) {
  * @param {(mode: string) => Promise<object>} deps.setContextMode
  * @param {(layerId: string) => Promise<boolean>} deps.setLayerEnabled
  * @param {() => Promise<any>} deps.flyToGlobe
+ * @param {(region: string) => Promise<any>} [deps.flyToRegion] Region missions.
  * @returns {Promise<{ok: boolean, choice: string, result?: object, failedLayerIds?: string[]}>}
  */
 export async function runFirstRunChoice(
   choice,
-  { setContextMode, setLayerEnabled, flyToGlobe },
+  { setContextMode, setLayerEnabled, flyToGlobe, flyToRegion },
 ) {
   const mission = FIRST_RUN_MISSIONS[choice];
   if (!mission) return { ok: false, choice };
@@ -274,8 +298,11 @@ export async function runFirstRunChoice(
   // Globe missions: start the pull-out and the layer work together so the
   // camera is already moving while the feeds spin up. The flight is framing,
   // not the mission — a stalled or superseded flight never fails the tile.
+  // Region missions frame their region instead of the globe, same rules.
   const flight = Promise.resolve()
-    .then(() => flyToGlobe())
+    .then(() =>
+      mission.kind === 'region' ? flyToRegion?.(mission.region) : flyToGlobe(),
+    )
     .catch(() => null);
   const outcomes = await Promise.all(
     mission.layerIds.map(async (layerId) => {
@@ -290,7 +317,11 @@ export async function runFirstRunChoice(
   const failedLayerIds = outcomes
     .filter((entry) => !entry.ok)
     .map((entry) => entry.layerId);
-  return { ok: failedLayerIds.length === 0, choice, failedLayerIds };
+  return {
+    ok: mission.bestEffortLayers === true || failedLayerIds.length === 0,
+    choice,
+    failedLayerIds,
+  };
 }
 
 /**
@@ -472,6 +503,12 @@ export function initFirstRunExperience({
         setLayerEnabled: (layerId) =>
           dataManager.setEnabled(layerId, true, { origin: 'user' }),
         flyToGlobe: () => styleManager.resetToGlobeView(),
+        // Loaded on demand: the launcher module stays free of Cesium until a
+        // region mission actually needs a camera flight.
+        flyToRegion: async () => {
+          const { flyToCountryView } = await import('./camera.js');
+          return flyToCountryView(styleManager.viewer);
+        },
       });
     } catch (error) {
       // A thrown mission is a real defect worth seeing in a bug report; the
@@ -480,6 +517,12 @@ export function initFirstRunExperience({
     }
     if (closing) return;
     if (outcome?.ok) {
+      // A best-effort mission can land with layers that would not enable;
+      // their rows already say why, so this is a breadcrumb, not an error.
+      if (outcome.failedLayerIds?.length)
+        console.info(
+          `[First run] ${choice}: not enabled: ${outcome.failedLayerIds.join(', ')}`,
+        );
       dismiss();
       return;
     }

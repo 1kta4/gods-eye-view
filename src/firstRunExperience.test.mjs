@@ -1,6 +1,7 @@
 import { expandApplicationHtml } from '../build/application-html.js';
 import { readStylesheet } from './testSupport/readStylesheet.mjs';
 import { GEV_REALTIME_TOOLS } from '../server/providers/openai/tools.js';
+import { BOSNIA_LAYER_IDS } from './layers/bosnia/manifest.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -380,8 +381,8 @@ test('the launcher yields on engage and waits when a surface is already up', () 
 
 // ── Per-mission behavior ─────────────────────────────────────────────────────
 
-function missionSpy({ contextOk = true, layerResult = () => true, globe = async () => ({ ok: true }) } = {}) {
-  const calls = { contextModes: [], layerIds: [], globeFlights: 0 };
+function missionSpy({ contextOk = true, layerResult = () => true, globe = async () => ({ ok: true }), region = async () => true } = {}) {
+  const calls = { contextModes: [], layerIds: [], globeFlights: 0, regionFlights: [] };
   return {
     calls,
     deps: {
@@ -397,18 +398,23 @@ function missionSpy({ contextOk = true, layerResult = () => true, globe = async 
         calls.globeFlights += 1;
         return globe();
       },
+      flyToRegion: async (name) => {
+        calls.regionFlights.push(name);
+        return region(name);
+      },
     },
   };
 }
 
-test('the menu is the four owner-ordered missions', () => {
+test('the menu is the Bosnia home mission plus the four owner-ordered missions', () => {
   // INFRASTRUCTURE was removed after the owner playtested it: enabling all
   // three bundled layers at once put ~5,700 entities on a full-earth view and
   // tanked the frame rate. The layers stay reachable by hand and by voice; what
   // went is the one-click globe-scale dump. Restoring the tile needs the
   // globe-LOD declutter first.
+  // The BiH fork leads with its home mission; the original four keep their order.
   assert.deepEqual(Object.keys(FIRST_RUN_MISSIONS), [
-    'contacts', 'space-missions', 'environmental', 'explore',
+    'bosnia', 'contacts', 'space-missions', 'environmental', 'explore',
   ]);
   assert.equal(FIRST_RUN_MISSIONS.infrastructure, undefined,
     'the infrastructure mission must be gone, not dormant');
@@ -480,12 +486,43 @@ test('a refused layer fails the mission by name, and a stalled flight never does
   assert.equal((await runFirstRunChoice('environmental', flightDown.deps)).ok, true);
 });
 
+test('Bosnia & Herzegovina flies to the country, not the globe, and enables its layers by id', async () => {
+  const spy = missionSpy();
+  const outcome = await runFirstRunChoice('bosnia', spy.deps);
+  assert.equal(outcome.ok, true);
+  assert.deepEqual(spy.calls.regionFlights, ['bosnia-and-herzegovina']);
+  assert.equal(spy.calls.globeFlights, 0);
+  assert.deepEqual(spy.calls.layerIds, [
+    'ba-boundaries', 'ba-earthquakes', 'ba-rivers', 'ba-air-quality',
+    'ba-weather-now', 'ba-border-crossings', 'flights',
+  ]);
+  assert.deepEqual(spy.calls.contextModes, []);
+
+  // BEST EFFORT: an IN PRODUCTION placeholder refuses to enable (its toggle
+  // snaps back by design). The refusals are named, but the mission still lands.
+  const placeholders = missionSpy({ layerResult: (id) => !id.startsWith('ba-') });
+  const landed = await runFirstRunChoice('bosnia', placeholders.deps);
+  assert.equal(landed.ok, true);
+  assert.equal(landed.failedLayerIds.length, 6);
+  assert.ok(!landed.failedLayerIds.includes('flights'));
+  assert.equal(FIRST_RUN_MISSIONS.bosnia.bestEffortLayers, true);
+  // ...which is the Bosnia tile's own opt-in: ENVIRONMENTAL still fails by name.
+  assert.equal(FIRST_RUN_MISSIONS.environmental.bestEffortLayers, undefined);
+
+  // The flight is framing: a cancelled flight, or no region flyer at all, never fails it.
+  const flightDown = missionSpy({ region: () => { throw new Error('cancelled'); } });
+  assert.equal((await runFirstRunChoice('bosnia', flightDown.deps)).ok, true);
+  const { flyToRegion, ...noRegion } = missionSpy().deps;
+  assert.equal(typeof flyToRegion, 'function');
+  assert.equal((await runFirstRunChoice('bosnia', noRegion)).ok, true);
+});
+
 test('Explore manually touches nothing at all, and an unknown choice is inert', async () => {
   const spy = missionSpy();
   assert.equal((await runFirstRunChoice('explore', spy.deps)).ok, true);
-  assert.deepEqual(spy.calls, { contextModes: [], layerIds: [], globeFlights: 0 });
+  assert.deepEqual(spy.calls, { contextModes: [], layerIds: [], globeFlights: 0, regionFlights: [] });
   assert.equal((await runFirstRunChoice('nope', spy.deps)).ok, false);
-  assert.deepEqual(spy.calls, { contextModes: [], layerIds: [], globeFlights: 0 });
+  assert.deepEqual(spy.calls, { contextModes: [], layerIds: [], globeFlights: 0, regionFlights: [] });
 });
 
 test('a failed Context mission reports the layers the facade named', async () => {
@@ -556,7 +593,7 @@ test('markup, startup ordering and accessibility remain pinned', () => {
   const css = readStylesheet(new URL('../style.css', import.meta.url));
 
   assert.match(html, /id="first-run-launcher" role="dialog"[^>]*aria-labelledby="first-run-title"[^>]*hidden/);
-  assert.equal((html.match(/data-first-run-choice=/g) || []).length, 4);
+  assert.equal((html.match(/data-first-run-choice=/g) || []).length, 5);
   assert.match(html, /data-first-run-status[^>]*role="status"[^>]*aria-live="polite"/);
   assert.match(html, /<input type="checkbox" data-first-run-suppress \/>/);
   assert.match(html, /<strong data-first-run-environmental-title>/);
@@ -579,7 +616,7 @@ test('markup, startup ordering and accessibility remain pinned', () => {
 
   // Menu order is the owner's, read straight off the markup.
   const order = [...html.matchAll(/data-first-run-choice="([a-z-]+)"/g)].map((match) => match[1]);
-  assert.deepEqual(order, ['contacts', 'space-missions', 'environmental', 'explore']);
+  assert.deepEqual(order, ['bosnia', 'contacts', 'space-missions', 'environmental', 'explore']);
   assert.doesNotMatch(html, /data-first-run-choice="infrastructure"/,
     'the removed tile must leave no markup behind');
 
@@ -700,7 +737,15 @@ test('the voice TOOL SCHEMA matches the pinned release — the mission mapping i
 test('every layer a mission drives is already in the shipped set_layer_visibility enum', () => {
   const tool = GEV_REALTIME_TOOLS.find(tool => tool.name === 'set_layer_visibility');
   const allowedLayers = tool.parameters.properties.layerId.enum;
-  const missionLayerIds = Object.values(FIRST_RUN_MISSIONS).flatMap((mission) => mission.layerIds || []);
+  // Bosnia (ba-*) layers are deliberately outside the pinned voice schema (see
+  // the schema test above); every other layer a mission drives must be in it.
+  const missionLayerIds = Object.values(FIRST_RUN_MISSIONS)
+    .flatMap((mission) => mission.layerIds || [])
+    .filter((layerId) => !layerId.startsWith('ba-'));
+  assert.ok(missionLayerIds.includes('flights'));
+  // ...and every ba-* id a mission names is a real Bosnia manifest row.
+  for (const layerId of FIRST_RUN_MISSIONS.bosnia.layerIds.filter((id) => id.startsWith('ba-')))
+    assert.ok(BOSNIA_LAYER_IDS.includes(layerId), `${layerId} must be a Bosnia manifest id`);
   assert.ok(missionLayerIds.length > 0);
   for (const layerId of missionLayerIds) {
     assert.ok(allowedLayers.includes(layerId), `${layerId} must already be an allowed enum value`);

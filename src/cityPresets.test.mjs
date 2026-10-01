@@ -194,3 +194,56 @@ test('containment follows a span across the antimeridian', () => {
     );
   }
 });
+
+test('Bosnia and Herzegovina leads the table and every original destination stays', () => {
+  const ids = DESTINATIONS.map(([id]) => id);
+  assert.deepEqual(ids.slice(0, 3), ['sarajevo', 'mostar', 'banjaluka']);
+  for (const id of [
+    'austin',
+    'sf',
+    'nyc',
+    'tokyo',
+    'london',
+    'paris',
+    'dubai',
+    'dc',
+    'tallinn',
+  ])
+    assert.ok(CITY_POIS[id], `${id} must stay`);
+  // Every BiH destination (the rows before the originals) lies in BiH's box.
+  for (const id of ids.slice(0, ids.indexOf('austin'))) {
+    for (const poi of CITY_POIS[id].pois) {
+      assert.ok(
+        poi.lat > 42.5 && poi.lat < 45.3 && poi.lon > 15.7 && poi.lon < 19.7,
+        `${where(id, poi)} is outside Bosnia and Herzegovina`,
+      );
+    }
+  }
+  assert.equal(ids.indexOf('austin'), 22, 'the 22 bundled BiH cities');
+});
+
+test('the three BiH city presets open on their signature frames', () => {
+  const first = (id) => CITY_POIS[id].pois[0];
+  // Sarajevo: looking east up the Miljacka valley onto Baščaršija.
+  assert.equal(first('sarajevo').name, 'Baščaršija');
+  assert.ok(
+    first('sarajevo').heading >= 60 && first('sarajevo').heading <= 110,
+  );
+  // Mostar: over Stari Most. Banja Luka: over Kastel.
+  assert.equal(first('mostar').name, 'Stari Most');
+  assert.equal(first('banjaluka').name, 'Kastel');
+});
+
+test('aliases, where present, are non-empty strings', () => {
+  for (const [id, city] of DESTINATIONS) {
+    for (const row of [city, ...city.pois]) {
+      if (row.aliases === undefined) continue;
+      assert.ok(Array.isArray(row.aliases), `${id} aliases`);
+      for (const alias of row.aliases)
+        assert.ok(
+          typeof alias === 'string' && alias.trim().length > 0,
+          `${id} has a blank alias`,
+        );
+    }
+  }
+});
