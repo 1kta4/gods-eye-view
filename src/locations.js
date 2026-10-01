@@ -9,13 +9,17 @@ import {
 import { unavailablePlaceSearch } from './search/placeSearch.js';
 import { cancelCameraArrival } from './data/cameraArrival.js';
 import { guardCameraAboveGround } from './cameraGroundGuard.js';
+import { BIH_CITY_POIS } from './locationsBosnia.js';
+import { foldDiacritics } from './search/diacritics.js';
 
 /** Newest landmark arrival; an older post-arrival ground guard yields to it. */
 let arrivalGeneration = 0;
 
 /**
  * Points of Interest per city.
- * Each city has 5 POIs; the first is the default fly-to landmark.
+ * The first POI is the default fly-to landmark; Q W E R T reach the first five.
+ * Bosnia and Herzegovina destinations come first (src/locationsBosnia.js), so
+ * they lead the LOCATIONS pill bar in this fork.
  *
  * Field reference:
  *   alt     — RANGE (distance from target in meters), NOT absolute altitude
@@ -24,6 +28,7 @@ let arrivalGeneration = 0;
  *   buildingHeight — estimated height of landmark center above ground (meters)
  */
 export const CITY_POIS = {
+  ...BIH_CITY_POIS,
   austin: {
     name: 'Austin',
     groundElevation: 150, // meters above WGS84 ellipsoid
@@ -768,8 +773,7 @@ const POI_STOPWORDS = new Set(['the', 'a', 'an', 'at', 'of', 'in', 'on', 'to']);
 /** Significant lowercased word set of a name (punctuation stripped, stopwords dropped). */
 function poiNameTokens(s) {
   return new Set(
-    String(s || '')
-      .toLowerCase()
+    foldDiacritics(s)
       .replace(/[^a-z0-9\s]/g, ' ')
       .split(/\s+/)
       .filter((w) => w && !POI_STOPWORDS.has(w)),
@@ -800,6 +804,27 @@ export function findPoiByName(query) {
     });
   }
   return best ? { cityId: best.cityId, index: best.index } : null;
+}
+
+/**
+ * The bundled POI an exact geocode answer names: same name, same point.
+ * Only landmark answers qualify; a city answer keeps its viewport framing.
+ * @param {{name?: string, lat?: number, lng?: number, types?: string[]}} place
+ * @returns {{city: object, poi: object}|null}
+ */
+function curatedPoiAt(place) {
+  if (!place?.types?.includes?.('point_of_interest')) return null;
+  for (const city of Object.values(CITY_POIS)) {
+    for (const poi of city.pois) {
+      if (
+        poi.name === place.name &&
+        poi.lat === place.lat &&
+        poi.lon === place.lng
+      )
+        return { city, poi };
+    }
+  }
+  return null;
 }
 
 /** Distinguishes an authority veto from a genuine not-found result. */
@@ -924,6 +949,35 @@ export async function searchAndFlyTo(viewer, query, options = {}) {
         rangeM: null,
       };
     }
+  }
+
+  // A bundled landmark answered by name (the offline preset geocoder) already
+  // has a hand-tuned camera pose and a known ground elevation; fly that, the
+  // same frame as its POI pill, instead of generic close framing.
+  const curated =
+    result?.exact && !recovered && !requestedRange && !options.forceClose
+      ? curatedPoiAt(result)
+      : null;
+  if (curated) {
+    if (!mayFly()) return CANCELLED_SEARCH;
+    const flight = flyToLandmark(viewer, curated.poi.lat, curated.poi.lon, {
+      range: curated.poi.alt,
+      pitch: curated.poi.pitch,
+      heading: curated.poi.heading || 0,
+      buildingHeight: curated.poi.buildingHeight || 30,
+      buildingBounds: curated.poi.buildingBounds || null,
+      groundElevation: curated.city.groundElevation || 0,
+      ground: options.ground || null,
+      duration,
+      onStart: options.onStart,
+      onComplete: options.onComplete,
+      onCancel: options.onCancel,
+    });
+    return {
+      label,
+      navigationMode: 'preset-landmark',
+      rangeM: Math.round(flight.range),
+    };
   }
 
   const shouldResolveBuilding = navigationMode === 'precise-place';

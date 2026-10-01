@@ -1,4 +1,5 @@
 import * as Cesium from 'cesium';
+import { BIH_COUNTRY_VIEW } from './locationsBosnia.js';
 
 /**
  * Camera presets for notable locations.
@@ -76,6 +77,90 @@ export function flyToAustin(viewer) {
     });
   }, 500);
   return () => {
+    clearTimeout(timer);
+    if (!viewer.isDestroyed()) viewer.camera.cancelFlight();
+  };
+}
+
+/** The pose that frames a {lat, lon, range, heading, pitch} view. */
+function countryViewPose(view) {
+  const target = Cesium.Cartesian3.fromDegrees(view.lon, view.lat, 0);
+  const offset = new Cesium.HeadingPitchRange(
+    Cesium.Math.toRadians(view.heading),
+    Cesium.Math.toRadians(view.pitch),
+    view.range,
+  );
+  return { target, offset };
+}
+
+/**
+ * Open the app on Bosnia and Herzegovina instead of Cesium's default
+ * North-America view. Instant (no flight), and it runs as soon as the viewer
+ * exists, so a share link or any later restore simply flies on from here.
+ * @param {Cesium.Viewer} viewer
+ * @param {{lat: number, lon: number, range: number, heading: number, pitch: number}} [view]
+ * @returns {boolean} Whether the pose was applied.
+ */
+export function applyStartupView(viewer, view = BIH_COUNTRY_VIEW) {
+  const camera = viewer?.camera;
+  if (!camera || viewer.isDestroyed?.()) return false;
+  const { target, offset } = countryViewPose(view);
+  camera.lookAt(target, offset);
+  // Release the lookAt frame so ordinary navigation (and later flights) work.
+  camera.lookAtTransform(Cesium.Matrix4.IDENTITY);
+  return true;
+}
+
+/**
+ * Fly to the whole-country Bosnia and Herzegovina view.
+ * @param {Cesium.Viewer} viewer
+ * @param {{duration?: number}} [options]
+ * @returns {Promise<boolean>} Resolves true when the flight lands, false when
+ *   it is cancelled or the viewer is gone.
+ */
+export function flyToCountryView(
+  viewer,
+  view = BIH_COUNTRY_VIEW,
+  options = {},
+) {
+  const camera = viewer?.camera;
+  if (!camera || viewer.isDestroyed?.()) return Promise.resolve(false);
+  const { target, offset } = countryViewPose(view);
+  return new Promise((resolve) => {
+    camera.flyToBoundingSphere(new Cesium.BoundingSphere(target, 0), {
+      offset,
+      duration: options.duration ?? 3,
+      complete: () => resolve(true),
+      cancel: () => resolve(false),
+    });
+  });
+}
+
+/**
+ * Default startup camera (no share link): open high over Bosnia and
+ * Herzegovina, then ease down into the whole-country oblique view.
+ * Same contract as {@link flyToAustin}: the returned function cancels the
+ * pending or active startup flight, so teardown never sees a late move.
+ * @param {Cesium.Viewer} viewer
+ * @param {{lat: number, lon: number, range: number, heading: number, pitch: number}} [view]
+ * @returns {Function}
+ */
+export function flyToStartupView(viewer, view = BIH_COUNTRY_VIEW) {
+  viewer.camera.setView({
+    destination: Cesium.Cartesian3.fromDegrees(view.lon, view.lat, 6500000),
+    orientation: {
+      heading: 0,
+      pitch: Cesium.Math.toRadians(-90),
+      roll: 0,
+    },
+  });
+  let cancelled = false;
+  const timer = setTimeout(() => {
+    if (cancelled || viewer.isDestroyed()) return;
+    void flyToCountryView(viewer, view, { duration: 3.5 });
+  }, 500);
+  return () => {
+    cancelled = true;
     clearTimeout(timer);
     if (!viewer.isDestroyed()) viewer.camera.cancelFlight();
   };

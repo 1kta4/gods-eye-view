@@ -17,6 +17,7 @@ import { applicationServices } from './services/application.js';
 import * as Cesium from 'cesium';
 import { forward as toMGRS } from 'mgrs';
 import { CITY_POIS } from './locations.js';
+import { regionLabel } from './hudRegion.js';
 import { composeLocalityTag } from './hudLocality.js';
 import {
   ellipsoidalToMslDisplayM,
@@ -541,23 +542,13 @@ export class IntelHUD {
   }
 
   /**
-   * Return a coarse geographic region label based on lat/lon bounding boxes.
+   * Return a coarse geographic region label (see hudRegion.js).
    * @param {number} lat - Latitude in decimal degrees.
    * @param {number} lon - Longitude in decimal degrees.
    * @returns {string} Region name (e.g. `"EUROPE"`, `"NORTHERN OCEANIC GRID"`).
    */
   _regionLabel(lat, lon) {
-    if (lat > 72) return 'ARCTIC';
-    if (lat < -60) return 'ANTARCTIC';
-    if (lat >= 5 && lat <= 83 && lon >= -170 && lon <= -50)
-      return 'NORTH AMERICA';
-    if (lat >= -60 && lat <= 15 && lon >= -90 && lon <= -30)
-      return 'SOUTH AMERICA';
-    if (lat >= 34 && lat <= 72 && lon >= -25 && lon <= 45) return 'EUROPE';
-    if (lat >= -35 && lat <= 38 && lon >= -20 && lon <= 55) return 'AFRICA';
-    if (lat >= 5 && lat <= 80 && lon >= 45 && lon <= 180) return 'ASIA';
-    if (lat >= -50 && lat <= 5 && lon >= 110 && lon <= 180) return 'OCEANIA';
-    return lat >= 0 ? 'NORTHERN OCEANIC GRID' : 'SOUTHERN OCEANIC GRID';
+    return regionLabel(lat, lon);
   }
 
   /**

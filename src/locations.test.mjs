@@ -1,4 +1,6 @@
 import { createStandalonePlaceSearch } from './standalone/placeSearch.js';
+import { createPresetGeocoder } from './search/presetGeocoder.js';
+import { createPlaceSearch } from './search/placeSearch.js';
 // Camera-framing mode contract for fly_to_location (field test 8 + rootcause doc §3):
 // parks/lakes/campuses and streets are NOT precise POIs — flying to "Zilker Park" at
 // building range (250 m) lands on a random rooftop. Pure mapping tests, no network.
@@ -20,6 +22,7 @@ import {
   REGION_SWATH_SPAN_KM,
   GLOBE_VIEW,
   searchAndFlyTo,
+  CITY_POIS,
 } from './locations.js';
 
 function stubViewer() {
@@ -527,13 +530,13 @@ test('geocoded Location branches forward the resolved-navigation ownership hook'
   const search = source.slice(searchStart, searchEnd);
   assert.equal(
     (search.match(/onStart: options\.onStart/g) || []).length,
-    3,
-    'swath, viewport, and landmark flights must each forward onStart',
+    4,
+    'swath, viewport, curated-preset, and landmark flights must each forward onStart',
   );
   assert.equal(
     (search.match(/onCancel: options\.onCancel/g) || []).length,
-    3,
-    'swath, viewport, and landmark flights must each forward onCancel',
+    4,
+    'swath, viewport, curated-preset, and landmark flights must each forward onCancel',
   );
   assert.ok(search.indexOf('return null;') < search.indexOf('onStart: options.onStart'));
 });
@@ -644,4 +647,31 @@ test('a precise search without an outline frames against the resolved ground, no
   assert.ok(Math.abs(target.height - (171 + 30)) < 0.5, `target ${target.height}`);
   const eye = target.height + flight.offset.range * Math.sin(-flight.offset.pitch);
   assert.ok(eye > 171 + 100, `eye ${eye} must clear the 171 m surface`);
+});
+
+test('a bundled landmark found by name flies its curated pose, offline', async () => {
+  const placeSearch = createPlaceSearch({ providers: [createPresetGeocoder({ presets: CITY_POIS })] });
+  const viewer = stubViewer();
+  const started = [];
+  const outcome = await searchAndFlyTo(viewer, 'stari most', {
+    placeSearch,
+    recoverNearView: async () => { throw new Error('an exact bundled answer must not ask Places'); },
+    onStart: () => started.push('start'),
+  });
+  const poi = CITY_POIS.mostar.pois[0];
+  assert.equal(outcome.label, 'Stari Most, Mostar');
+  assert.equal(outcome.navigationMode, 'preset-landmark');
+  assert.equal(outcome.rangeM, poi.alt);
+  assert.deepEqual(started, ['start']);
+  const { offset } = viewer.flights[0];
+  assert.ok(Math.abs(Cesium.Math.toDegrees(offset.heading) - poi.heading) < 1e-9);
+  assert.ok(Math.abs(Cesium.Math.toDegrees(offset.pitch) - poi.pitch) < 1e-9);
+  // Framed above the city's ground, not sea level, when terrain is not loaded.
+  const target = Cesium.Cartographic.fromCartesian(viewer.flights[0].sphere.center);
+  assert.ok(Math.abs(target.height - (CITY_POIS.mostar.groundElevation + poi.buildingHeight)) < 1);
+
+  // Diacritic-free input reaches the same curated frame.
+  const bazaar = await searchAndFlyTo(stubViewer(), 'Bascarsija', { placeSearch });
+  assert.equal(bazaar.navigationMode, 'preset-landmark');
+  assert.equal(bazaar.rangeM, CITY_POIS.sarajevo.pois[0].alt);
 });
