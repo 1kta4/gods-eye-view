@@ -564,6 +564,86 @@ export const LAYER_STATE_REGISTRY = Object.freeze([
     disposition: 'enabled-only',
   }),
   Object.freeze({
+    id: 'ba-air-quality',
+    token: 'b2',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-airports',
+    token: 'be',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-border-crossings',
+    token: 'b7',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-boundaries',
+    token: 'b9',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-earthquakes',
+    token: 'b0',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-emergencies',
+    token: 'ba',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-fire-danger',
+    token: 'b3',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-flood-forecast',
+    token: 'bi',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-heritage',
+    token: 'bb',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-lightning',
+    token: 'bj',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-memorial',
+    token: 'bc',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-minefields',
+    token: 'bd',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-mines-official',
+    token: 'bg',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({ id: 'ba-power', token: 'b8', disposition: 'enabled-only' }),
+  Object.freeze({ id: 'ba-radar', token: 'b6', disposition: 'enabled-only' }),
+  Object.freeze({ id: 'ba-rail', token: 'bf', disposition: 'enabled-only' }),
+  Object.freeze({ id: 'ba-rivers', token: 'b1', disposition: 'enabled-only' }),
+  Object.freeze({ id: 'ba-transit', token: 'bh', disposition: 'enabled-only' }),
+  Object.freeze({
+    id: 'ba-weather-now',
+    token: 'b5',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
+    id: 'ba-weather-warnings',
+    token: 'b4',
+    disposition: 'enabled-only',
+  }),
+  Object.freeze({
     id: 'bhote-koshi-2026',
     token: 'h',
     disposition: 'enabled-only',

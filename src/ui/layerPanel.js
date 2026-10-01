@@ -18,6 +18,32 @@ const FEED_STATE_LABELS = Object.freeze({
 // Presentation order is independent of catalog registration and startup order.
 const PANEL_GROUPS = [
   {
+    label: 'Bosnia & Herzegovina',
+    // Keep in step with src/layers/bosnia/manifest.js.
+    ids: [
+      'ba-earthquakes',
+      'ba-rivers',
+      'ba-air-quality',
+      'ba-fire-danger',
+      'ba-weather-warnings',
+      'ba-weather-now',
+      'ba-radar',
+      'ba-border-crossings',
+      'ba-power',
+      'ba-boundaries',
+      'ba-emergencies',
+      'ba-heritage',
+      'ba-memorial',
+      'ba-minefields',
+      'ba-airports',
+      'ba-rail',
+      'ba-mines-official',
+      'ba-transit',
+      'ba-flood-forecast',
+      'ba-lightning',
+    ],
+  },
+  {
     label: 'Movement',
     ids: [
       'satellites',
