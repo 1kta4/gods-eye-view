@@ -1,0 +1,21 @@
+{
+  "asOf": "January 2025",
+  "source": "BHMAC, Mine Action Activity Plan in Bosnia and Herzegovina 2025–2026, Table 1 (APMBC Art. 5 extension request work plan)",
+  "url": "https://www.apminebanconvention.org/fileadmin/_APMBC-DOCUMENTS/Meetings/2025/22MSP-Bosnia-and-Herzegovina-Art5-ExtReq-Work-Plan.pdf",
+  "rows": [
+    { "area": "Unsko-sanski kanton", "level": "canton", "km2": 85.02 },
+    { "area": "Posavski kanton", "level": "canton", "km2": 13.89 },
+    { "area": "Tuzlanski kanton", "level": "canton", "km2": 66.76 },
+    { "area": "Zeničko-dobojski kanton", "level": "canton", "km2": 112.17 },
+    { "area": "Bosansko-podrinjski kanton", "level": "canton", "km2": 42.48 },
+    { "area": "Srednjobosanski kanton", "level": "canton", "km2": 99.38 },
+    { "area": "Hercegovačko-neretvanski kanton", "level": "canton", "km2": 126.59 },
+    { "area": "Zapadnohercegovački kanton", "level": "canton", "km2": 0.2 },
+    { "area": "Kanton Sarajevo", "level": "canton", "km2": 48.25 },
+    { "area": "Kanton 10", "level": "canton", "km2": 60.59 },
+    { "area": "Federacija BiH", "level": "entity", "km2": 655.33 },
+    { "area": "Republika Srpska", "level": "entity", "km2": 157.19 },
+    { "area": "Brčko distrikt", "level": "entity", "km2": 10.35 },
+    { "area": "Bosna i Hercegovina", "level": "total", "km2": 822.87 }
+  ]
+}
