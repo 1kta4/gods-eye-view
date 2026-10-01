@@ -26,10 +26,13 @@ import { firePerimetersProxy } from './firePerimeters.js';
 import { cycloneProxy } from './cyclones.js';
 import { windProxy } from './wind.js';
 import { bosniaProxies } from './bosnia/index.js';
+import { apiRequestGuard } from './common/api-guard.js';
 
 /** Construct the local provider plugins in their established order. */
 function localProviderPlugins() {
   return [
+    // Must stay first: it gates every /api route below.
+    apiRequestGuard(),
     openSkyProxy(),
     celestrakProxy(),
     tomtomProxy(),

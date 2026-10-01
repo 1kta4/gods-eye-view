@@ -32,9 +32,7 @@ export function createBrowserViteConfig({
       host: host || 'localhost',
       port: parseInt(port, 10) || 4173,
       allowedHosts:
-        host === '0.0.0.0' || host === '::'
-          ? true
-          : ['localhost', '127.0.0.1', '.local'],
+        host === '0.0.0.0' || host === '::' ? true : ['localhost', '127.0.0.1'],
       fs: {
         deny: ['.env', '.env.*', '*.{crt,pem}', '**/.git/**', '**/ENVIRONMENT'],
       },

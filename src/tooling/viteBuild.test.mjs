@@ -18,7 +18,6 @@ test('explicit build inputs preserve browser-only defines, plugin order and loop
   assert.deepEqual(config.server.allowedHosts, [
     'localhost',
     '127.0.0.1',
-    '.local',
   ]);
   assert.ok(config.server.fs.deny.includes('**/ENVIRONMENT'));
   assert.ok(config.server.fs.deny.includes('.env.*'));

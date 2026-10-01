@@ -14,13 +14,22 @@ import {
 import { realtimeInstructions } from './instructions.js';
 import { GEV_REALTIME_TOOLS } from './tools.js';
 
+const REALTIME_SECRET_TTL_SECONDS = 120;
+const REALTIME_MINTS_PER_HOUR_DEFAULT = 30;
+
 function createRealtimeTokenHandler({
   annotationGuidance,
   endpoint = 'https://api.openai.com/v1/realtime/client_secrets',
   fetchImpl = (...args) => fetch(...args),
   resolveApiKey = () => process.env.OPENAI_API_KEY,
   models = {},
+  now = () => Date.now(),
+  maxMintsPerHour = Number(process.env.OPENAI_REALTIME_MAX_MINTS_PER_HOUR) ||
+    REALTIME_MINTS_PER_HOUR_DEFAULT,
 } = {}) {
+  // Server-side backstop for the browser's spend cap: a page that bypasses
+  // the client meter still cannot mint sessions without bound.
+  const mintTimes = [];
   return async (req, res) => {
     res.setHeader('Cache-Control', 'no-store');
     if (req.method !== 'GET' && req.method !== 'POST') {
@@ -40,6 +49,17 @@ function createRealtimeTokenHandler({
       res.end(JSON.stringify({ error: 'OPENAI_API_KEY is not set' }));
       return;
     }
+
+    const mintedAt = now();
+    while (mintTimes.length && mintedAt - mintTimes[0] > 3600_000)
+      mintTimes.shift();
+    if (mintTimes.length >= maxMintsPerHour) {
+      res.statusCode = 429;
+      res.setHeader('Content-Type', 'application/json');
+      res.end(JSON.stringify({ error: 'Realtime session limit reached' }));
+      return;
+    }
+    mintTimes.push(mintedAt);
 
     // Voice model tier, requested by the client as ?tier=standard|mini.
     // resolveVoiceModel is total: an unknown, empty, or hostile value
@@ -89,6 +109,11 @@ function createRealtimeTokenHandler({
       ),
     );
     const sessionConfig = {
+      // The secret is only needed to open the WebRTC call; keep it short.
+      expires_after: {
+        anchor: 'created_at',
+        seconds: REALTIME_SECRET_TTL_SECONDS,
+      },
       session: {
         type: 'realtime',
         model,
