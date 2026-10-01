@@ -1,0 +1,148 @@
+{
+ "units": [
+  {
+   "kind": "entity",
+   "code": "FBiH",
+   "name": "Federation of Bosnia and Herzegovina",
+   "localName": "Federacija Bosne i Hercegovine",
+   "population2013": 2219220,
+   "areaKm2": 25774,
+   "municipalities": 79,
+   "labelLon": 17.549,
+   "labelLat": 43.9068
+  },
+  {
+   "kind": "entity",
+   "code": "RS",
+   "name": "Republika Srpska",
+   "localName": "Republika Srpska",
+   "population2013": 1228423,
+   "areaKm2": 25200,
+   "municipalities": 62,
+   "labelLon": 17.3722,
+   "labelLat": 44.6598
+  },
+  {
+   "kind": "entity",
+   "code": "BD",
+   "name": "Brčko District",
+   "localName": "Brčko distrikt BiH",
+   "population2013": 83516,
+   "areaKm2": 487,
+   "municipalities": 1,
+   "labelLon": 18.8007,
+   "labelLat": 44.8411
+  },
+  {
+   "kind": "canton",
+   "code": 1,
+   "name": "Una-Sana Canton",
+   "localName": "Unsko-sanski kanton",
+   "population2013": 273261,
+   "areaKm2": 4202,
+   "municipalities": 8,
+   "labelLon": 16.3609,
+   "labelLat": 44.7368
+  },
+  {
+   "kind": "canton",
+   "code": 2,
+   "name": "Posavina Canton",
+   "localName": "Posavski kanton",
+   "population2013": 43453,
+   "areaKm2": 330,
+   "municipalities": 3,
+   "labelLon": 18.3297,
+   "labelLat": 45.0705
+  },
+  {
+   "kind": "canton",
+   "code": 3,
+   "name": "Tuzla Canton",
+   "localName": "Tuzlanski kanton",
+   "population2013": 445028,
+   "areaKm2": 2536,
+   "municipalities": 13,
+   "labelLon": 18.5814,
+   "labelLat": 44.5388
+  },
+  {
+   "kind": "canton",
+   "code": 4,
+   "name": "Zenica-Doboj Canton",
+   "localName": "Zeničko-dobojski kanton",
+   "population2013": 364433,
+   "areaKm2": 3350,
+   "municipalities": 12,
+   "labelLon": 18.167,
+   "labelLat": 44.3088
+  },
+  {
+   "kind": "canton",
+   "code": 5,
+   "name": "Bosnian-Podrinje Canton Goražde",
+   "localName": "Bosansko-podrinjski kanton Goražde",
+   "population2013": 23734,
+   "areaKm2": 454,
+   "municipalities": 3,
+   "labelLon": 18.8148,
+   "labelLat": 43.6632
+  },
+  {
+   "kind": "canton",
+   "code": 6,
+   "name": "Central Bosnia Canton",
+   "localName": "Srednjobosanski kanton",
+   "population2013": 254686,
+   "areaKm2": 3254,
+   "municipalities": 12,
+   "labelLon": 17.6025,
+   "labelLat": 44.1341
+  },
+  {
+   "kind": "canton",
+   "code": 7,
+   "name": "Herzegovina-Neretva Canton",
+   "localName": "Hercegovačko-neretvanski kanton",
+   "population2013": 222007,
+   "areaKm2": 4169,
+   "municipalities": 9,
+   "labelLon": 17.7722,
+   "labelLat": 43.2414
+  },
+  {
+   "kind": "canton",
+   "code": 8,
+   "name": "West Herzegovina Canton",
+   "localName": "Zapadnohercegovački kanton",
+   "population2013": 94898,
+   "areaKm2": 1335,
+   "municipalities": 4,
+   "labelLon": 17.4688,
+   "labelLat": 43.3709
+  },
+  {
+   "kind": "canton",
+   "code": 9,
+   "name": "Sarajevo Canton",
+   "localName": "Kanton Sarajevo",
+   "population2013": 413593,
+   "areaKm2": 1223,
+   "municipalities": 9,
+   "labelLon": 18.2814,
+   "labelLat": 43.8415
+  },
+  {
+   "kind": "canton",
+   "code": 10,
+   "name": "Canton 10",
+   "localName": "Kanton 10",
+   "population2013": 84127,
+   "areaKm2": 4919,
+   "municipalities": 6,
+   "labelLon": 16.8929,
+   "labelLat": 44.0156
+  }
+ ],
+ "totalPopulation2013": 3531159
+}
