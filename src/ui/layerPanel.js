@@ -645,7 +645,9 @@ export class LayerPanel {
       : uncertain
         ? 'UNCERTAIN'
         : layer.enabled
-          ? FEED_STATE_LABELS[feedState]
+          ? layer.stats?.inProduction === true
+            ? 'IN PRODUCTION'
+            : FEED_STATE_LABELS[feedState]
           : 'OFF';
     const keyGuidance = layerKeyRequirementTooltip(layer);
     // Name the missing key on the control itself: a row reading KEY REQUIRED

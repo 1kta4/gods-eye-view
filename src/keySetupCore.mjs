@@ -106,6 +106,22 @@ export const KEY_SETUP_KEYS = Object.freeze([
     envVars: Object.freeze(['LL2_API_TOKEN']),
     tier: 'free',
   }),
+  Object.freeze({
+    id: 'entsoe',
+    title: 'ENTSO-E',
+    unlocks: 'Live BiH load, generation and cross-border flows',
+    getUrl: 'https://transparency.entsoe.eu/',
+    envVars: Object.freeze(['ENTSOE_API_TOKEN']),
+    tier: 'free',
+  }),
+  Object.freeze({
+    id: 'waqi',
+    title: 'WAQI',
+    unlocks: 'More BiH air-quality stations (Republika Srpska, US Embassy)',
+    getUrl: 'https://aqicn.org/data-platform/token/',
+    envVars: Object.freeze(['WAQI_TOKEN']),
+    tier: 'free',
+  }),
 ]);
 
 /** Hostnames a Provider Settings request may arrive under or originate from. */

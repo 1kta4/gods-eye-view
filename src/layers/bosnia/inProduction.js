@@ -27,12 +27,19 @@ export function createInProductionLayer(
       console.info(`[Data:Bosnia] ${row.name}: ${message}`);
     },
     disable() {},
+    // Nothing to load: report success so the toggle stays ON and shows
+    // IN PRODUCTION instead of snapping back off.
     update() {
-      return false;
+      return true;
     },
     destroy() {},
     getStats() {
-      return { count: 0, status: 'unavailable', error: message };
+      return {
+        count: 0,
+        status: 'unavailable',
+        inProduction: true,
+        error: message,
+      };
     },
   };
 }
